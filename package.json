@@ -1,0 +1,20 @@
+{
+  "name": "kinopoiskdev_ts_client",
+  "version": "1.0.0",
+  "description": "JS/TS библиотека для kinopoisk.dev API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mdwitr0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenMovieDB/kinopoiskdev_ts_client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OpenMovieDB/kinopoiskdev_ts_client/issues"
+  },
+  "homepage": "https://github.com/OpenMovieDB/kinopoiskdev_ts_client#readme"
+}
