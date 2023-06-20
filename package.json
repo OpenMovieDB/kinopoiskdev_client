@@ -7,7 +7,9 @@
   "module": "dist/bundle.esm.js",
   "browser": "dist/bundle.iife.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "mdwitr0",
@@ -23,6 +25,11 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8",
     "rollup": "^3.25.1",
     "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^5.1.3"

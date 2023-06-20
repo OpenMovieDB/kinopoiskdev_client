@@ -7,7 +7,5 @@
     "target": "ESNext",
     "jsx": "react"
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }
