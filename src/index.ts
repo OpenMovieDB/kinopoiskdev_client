@@ -6,8 +6,9 @@ import { KeywordService } from './services/keyword.service';
 import { ImageService } from './services/image.service';
 import { StudioService } from './services/studio.service';
 import { ClientRequest } from './client-request';
+import { IKinopoiskDev } from './interfaces/kinopoiskdev.interface';
 
-export class KinopoiskDev {
+export class KinopoiskDev implements IKinopoiskDev {
   API_URL: string = 'https://api.kinopoisk.dev';
   public movie: MovieService;
   public season: SeasonService;
