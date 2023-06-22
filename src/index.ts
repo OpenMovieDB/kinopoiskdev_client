@@ -7,8 +7,6 @@ import { ImageService } from './services/image.service';
 import { StudioService } from './services/studio.service';
 import { ClientRequest } from './client-request';
 import { IKinopoiskDev } from './interfaces/kinopoiskdev.interface';
-import { MovieQueryBuilder } from './builder/query.builder';
-import { SORT_TYPE } from './enums/sort-type.enum';
 
 export class KinopoiskDev implements IKinopoiskDev {
   public movie: MovieService;
@@ -34,13 +32,3 @@ export class KinopoiskDev implements IKinopoiskDev {
     this.review = new ReviewService(this.request);
   }
 }
-
-// const clinet = new KinopoiskDev('123');
-// const queryBuilder = new MovieQueryBuilder();
-// const query = queryBuilder
-//   .select(['id', 'name'])
-//   .sort('id', SORT_TYPE.DESC)
-//   .filterExact('isSeries', true)
-//   .build();
-// const res = await clinet.movie.getByFilters(query);
-// if (res)
