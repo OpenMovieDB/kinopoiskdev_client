@@ -8,6 +8,7 @@
   "browser": "dist/bundle.iife.js",
   "scripts": {
     "build": "rollup -c",
+    "dev": "rollup -c -w & nodemon dist/bundle.esm.js",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -29,6 +30,7 @@
     "@typescript-eslint/parser": "^5.60.0",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
+    "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "rollup": "^3.25.1",
     "rollup-plugin-typescript2": "^0.34.1",
