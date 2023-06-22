@@ -1,5 +1,6 @@
 import { VERSIONS } from './enums/version.enum';
 import { IResponseError } from './interfaces/error.interface';
+import { IResponse } from './interfaces/response.interface';
 
 export class ClientRequest {
   constructor(
@@ -11,7 +12,7 @@ export class ClientRequest {
     version: VERSIONS,
     path: string,
     params?: P,
-  ): Promise<T | IResponseError> {
+  ): Promise<IResponse<T>> {
     try {
       const response = await fetch(
         `${this.API_URL}/${version}${path}?${new URLSearchParams(
@@ -32,14 +33,20 @@ export class ClientRequest {
         );
       }
 
-      return await response.json();
+      return {
+        data: await response.json(),
+        statusCode: response.status,
+        error: null,
+        message: null,
+      };
     } catch (error) {
       console.error('There was an error with your request:', error);
       return {
+        data: null,
         statusCode: error.status,
         error: error.error,
         message: error.message,
-      } as IResponseError;
+      };
     }
   }
 }
