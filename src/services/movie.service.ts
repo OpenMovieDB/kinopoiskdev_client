@@ -7,7 +7,6 @@ import {
   SearchMovieResponseDto,
 } from '../interfaces/api.interface';
 import { IPagination } from '../interfaces/pagination.interface';
-import { Pagination } from '../classes/pagination';
 import { VERSIONS } from '../enums/version.enum';
 import { IResponseError } from '../interfaces/error.interface';
 

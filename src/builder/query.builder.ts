@@ -3,6 +3,7 @@ import { SPECIAL_VALUE } from '../enums/special-value.enum';
 import { IQueryFields } from '../interfaces/query-fields.interface';
 import { MovieFields } from '../types/movie-fields.type';
 import { PersonFields } from '../types/person-fields.type';
+import { Pagination } from '../classes/pagination';
 
 export abstract class QueryBuilder<T extends IQueryFields> {
   protected query: any;
@@ -65,8 +66,9 @@ export abstract class QueryBuilder<T extends IQueryFields> {
   }
 
   paginate(page: number, limit: number): this {
-    this.query.page = page;
-    this.query.limit = limit;
+    const pagination = new Pagination(page, limit);
+    this.query.page = pagination.page;
+    this.query.limit = pagination.limit;
     return this;
   }
 
