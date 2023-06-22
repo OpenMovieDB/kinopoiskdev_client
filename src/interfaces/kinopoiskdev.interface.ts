@@ -8,7 +8,6 @@ import { ImageService } from '../services/image.service';
 import { ClientRequest } from '../client-request';
 
 export interface IKinopoiskDev {
-  API_URL: string;
   movie: MovieService;
   season: SeasonService;
   person: PersonService;

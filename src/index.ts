@@ -9,7 +9,6 @@ import { ClientRequest } from './client-request';
 import { IKinopoiskDev } from './interfaces/kinopoiskdev.interface';
 
 export class KinopoiskDev implements IKinopoiskDev {
-  API_URL: string = 'https://api.kinopoisk.dev';
   public movie: MovieService;
   public season: SeasonService;
   public person: PersonService;
@@ -19,7 +18,10 @@ export class KinopoiskDev implements IKinopoiskDev {
   public image: ImageService;
   public request: ClientRequest;
 
-  constructor(private readonly API_KEY: string) {
+  constructor(
+    private readonly API_KEY: string,
+    private readonly API_URL: string = 'https://api.kinopoisk.dev',
+  ) {
     this.request = new ClientRequest(this.API_KEY, this.API_URL);
     this.movie = new MovieService(this.request);
     this.season = new SeasonService(this.request);
