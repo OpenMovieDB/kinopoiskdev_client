@@ -79,3 +79,7 @@ export abstract class QueryBuilder<T extends IQueryFields> {
 
 export class MovieQueryBuilder extends QueryBuilder<MovieFields> {}
 export class PersonQueryBuilder extends QueryBuilder<PersonFields> {}
+export class ReviewQueryBuilder extends QueryBuilder<PersonFields> {}
+export class SeasonQueryBuilder extends QueryBuilder<PersonFields> {}
+export class StudioQueryBuilder extends QueryBuilder<PersonFields> {}
+export class ImageQueryBuilder extends QueryBuilder<PersonFields> {}
