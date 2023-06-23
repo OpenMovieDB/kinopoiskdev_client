@@ -1,6 +1,7 @@
 import { VERSIONS } from './enums/version.enum';
 import { IResponseError } from './interfaces/error.interface';
 import { IResponse } from './interfaces/response.interface';
+import { queryParams } from './helper/query-params';
 
 export class ClientRequest {
   constructor(
@@ -15,14 +16,8 @@ export class ClientRequest {
   ): Promise<IResponse<T>> {
     try {
       const response = await fetch(
-        `${this.API_URL}/${version}${path}?${new URLSearchParams(
-          params as any,
-        )}`,
-        {
-          headers: {
-            'X-API-KEY': this.API_KEY,
-          },
-        },
+        `${this.API_URL}/${version}${path}?${queryParams(params as any)}`,
+        { headers: { 'X-API-KEY': this.API_KEY } },
       );
 
       // If the HTTP response status is not 200, throw an error
