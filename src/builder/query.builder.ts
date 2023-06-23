@@ -4,34 +4,26 @@ import { IQueryFields } from '../interfaces/query-fields.interface';
 import { MovieFields } from '../types/movie-fields.type';
 import { PersonFields } from '../types/person-fields.type';
 import { Pagination } from '../classes/pagination';
+import {
+  AllFields,
+  IQueryBuilder,
+} from '../interfaces/query-builder.interface';
 
-export abstract class QueryBuilder<T extends IQueryFields> {
+export abstract class QueryBuilder<T extends IQueryFields>
+  implements IQueryBuilder<T>
+{
   protected query: any;
 
   constructor() {
     this.query = {};
   }
 
-  select(
-    fields: (
-      | T['BooleanFields']
-      | T['NumberFields']
-      | T['DateFields']
-      | T['StringFields']
-    )[],
-  ): this {
+  select(fields: AllFields<T>[]): this {
     this.query.selectFields = fields;
     return this;
   }
 
-  sort(
-    field:
-      | T['BooleanFields']
-      | T['NumberFields']
-      | T['DateFields']
-      | T['StringFields'],
-    sortType: SORT_TYPE | '1' | '-1',
-  ): this {
+  sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): this {
     if (!this.query.sortField) {
       this.query.sortField = [];
       this.query.sortType = [];
@@ -42,11 +34,7 @@ export abstract class QueryBuilder<T extends IQueryFields> {
   }
 
   filterExact(
-    field:
-      | T['BooleanFields']
-      | T['NumberFields']
-      | T['DateFields']
-      | T['StringFields'],
+    field: AllFields<T>,
     value: string | number | boolean | SPECIAL_VALUE,
   ): this {
     if (!this.query[field]) this.query[field] = [];

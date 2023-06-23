@@ -1,13 +1,28 @@
-import { VERSIONS } from './enums/version.enum';
 import { IResponseError } from './interfaces/error.interface';
+import { VERSIONS } from './enums/version.enum';
 import { IResponse } from './interfaces/response.interface';
-import { queryParams } from './helper/query-params';
 
 export class ClientRequest {
   constructor(
     private readonly API_KEY: string,
     private readonly API_URL: string,
   ) {}
+
+  private queryParams(params: { [key: string]: any }): string {
+    let urlSearchParams = new URLSearchParams();
+
+    for (let key in params) {
+      if (Array.isArray(params[key])) {
+        for (let value of params[key]) {
+          urlSearchParams.append(key, value);
+        }
+      } else {
+        urlSearchParams.append(key, params[key]);
+      }
+    }
+
+    return urlSearchParams.toString();
+  }
 
   async get<T, P extends Record<string, unknown>>(
     version: VERSIONS,
@@ -16,11 +31,11 @@ export class ClientRequest {
   ): Promise<IResponse<T>> {
     try {
       const response = await fetch(
-        `${this.API_URL}/${version}${path}?${queryParams(params as any)}`,
+        `${this.API_URL}/${version}${path}?${this.queryParams(params as any)}`,
         { headers: { 'X-API-KEY': this.API_KEY } },
       );
 
-      // If the HTTP response status is not 200, throw an error
+      // Если статус HTTP-ответа не 200, выбрасывается ошибка
       if (!response.ok) {
         const error: IResponseError = await response.json();
         throw new Error(
