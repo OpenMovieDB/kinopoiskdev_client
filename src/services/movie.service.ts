@@ -1,5 +1,6 @@
 import { ClientRequest } from '../client-request';
 import {
+  MovieAwardDocsResponseDto,
   MovieDocsResponseDtoV13,
   MovieDtoV13,
   PossibleValueDto,
@@ -37,7 +38,7 @@ export class MovieService {
   async getAwardsByFilters(
     filters: Record<string, string>,
     paginationParams?: IPagination,
-  ): Promise<IResponse<MovieDocsResponseDtoV13>> {
+  ): Promise<IResponse<MovieAwardDocsResponseDto>> {
     return await this.request.get(VERSIONS.V1_1, `/movie/awards`, filters);
   }
 
