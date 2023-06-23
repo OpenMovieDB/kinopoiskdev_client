@@ -49,7 +49,8 @@ export abstract class QueryBuilder<T extends IQueryFields> {
       | T['StringFields'],
     value: string | number | boolean | SPECIAL_VALUE,
   ): this {
-    this.query[field] = value;
+    if (!this.query[field]) this.query[field] = [];
+    this.query[field].push(value);
     return this;
   }
 
