@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "ESNext",
+    "esModuleInterop": true,
     "jsx": "react"
   },
   "include": ["./src/**/*"]
