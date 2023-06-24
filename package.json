@@ -11,7 +11,8 @@
     "dev": "rollup -c -w & nodemon dist/bundle.esm.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest",
+    "release": "release-please --"
   },
   "keywords": [],
   "author": "mdwitr0",
@@ -36,6 +37,7 @@
     "jest-fetch-mock": "^3.0.3",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
+    "release-please": "^15.11.0",
     "rollup": "^3.25.1",
     "rollup-plugin-typescript2": "^0.34.1",
     "ts-jest": "^29.1.0",
