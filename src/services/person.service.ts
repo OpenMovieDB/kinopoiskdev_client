@@ -8,6 +8,8 @@ import {
 } from '../interfaces/api.interface';
 import { VERSIONS } from '../enums/version.enum';
 import { IPagination } from '../interfaces/pagination.interface';
+import { Filter } from '../interfaces/query-builder.interface';
+import { PersonFields } from '../types/person-fields.type';
 
 export class PersonService {
   constructor(private readonly request: ClientRequest) {}
@@ -17,7 +19,7 @@ export class PersonService {
   }
 
   async getByFilters(
-    filters: Record<string, string>,
+    filters: Filter<PersonFields>,
   ): Promise<IResponse<PersonDocsResponseDto>> {
     return await this.request.get(VERSIONS.V1, `/person`, filters);
   }
