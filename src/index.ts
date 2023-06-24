@@ -7,8 +7,6 @@ import { ImageService } from './services/image.service';
 import { StudioService } from './services/studio.service';
 import { ClientRequest } from './client-request';
 import { IKinopoiskDev } from './interfaces/kinopoiskdev.interface';
-import { MovieQueryBuilder } from './builder/query.builder';
-import { SORT_TYPE } from './enums/sort-type.enum';
 
 export class KinopoiskDev implements IKinopoiskDev {
   public movie: MovieService;
