@@ -6,6 +6,7 @@ import { PersonFields } from '../types/person-fields.type';
 import { Pagination } from '../classes/pagination';
 import {
   AllFields,
+  Filter,
   IQueryBuilder,
 } from '../interfaces/query-builder.interface';
 
@@ -61,7 +62,7 @@ export abstract class QueryBuilder<T extends IQueryFields>
     return this;
   }
 
-  build(): any {
+  build(): Filter<T> {
     return this.query;
   }
 }
