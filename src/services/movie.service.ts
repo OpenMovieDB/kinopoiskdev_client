@@ -9,6 +9,8 @@ import {
 import { IPagination } from '../interfaces/pagination.interface';
 import { VERSIONS } from '../enums/version.enum';
 import { IResponse } from '../interfaces/response.interface';
+import { Filter } from '../interfaces/query-builder.interface';
+import { MovieFields } from '../types/movie-fields.type';
 
 export class MovieService {
   constructor(private readonly request: ClientRequest) {}
@@ -22,7 +24,7 @@ export class MovieService {
   }
 
   async getByFilters(
-    filters: Record<string, string>,
+    filters: Filter<MovieFields>,
   ): Promise<IResponse<MovieDocsResponseDtoV13>> {
     return await this.request.get(VERSIONS.V1_3, `/movie`, filters);
   }
