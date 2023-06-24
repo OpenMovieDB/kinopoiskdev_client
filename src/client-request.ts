@@ -9,11 +9,11 @@ export class ClientRequest {
   ) {}
 
   private queryParams(params: { [key: string]: any }): string {
-    let urlSearchParams = new URLSearchParams();
+    const urlSearchParams = new URLSearchParams();
 
-    for (let key in params) {
+    for (const key in params) {
       if (Array.isArray(params[key])) {
-        for (let value of params[key]) {
+        for (const value of params[key]) {
           urlSearchParams.append(key, value);
         }
       } else {
@@ -39,7 +39,11 @@ export class ClientRequest {
       if (!response.ok) {
         const error: IResponseError = await response.json();
         throw new Error(
-          `HTTP error! status: ${response.status}, error: ${error.error}, message: ${error.message}`,
+          JSON.stringify({
+            status: response.status,
+            error: error.error,
+            message: error.message,
+          }),
         );
       }
 
@@ -50,12 +54,13 @@ export class ClientRequest {
         message: null,
       };
     } catch (error) {
-      console.error('There was an error with your request:', error);
+      const { status, message, error: err } = JSON.parse(error.message);
+      console.log('There was an error with your request:', error);
       return {
         data: null,
-        statusCode: error.status,
-        error: error.error,
-        message: error.message,
+        statusCode: status,
+        error: err,
+        message: message,
       };
     }
   }
