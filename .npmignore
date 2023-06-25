@@ -1,2 +1,6 @@
 examples/
 *.test.ts
+.parcel-cache
+.github
+.idea
+src
