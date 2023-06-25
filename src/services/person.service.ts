@@ -8,9 +8,10 @@ import {
 } from '../interfaces/api.interface';
 import { VERSION } from '../enums/version.enum';
 import { IPagination } from '../interfaces/pagination.interface';
-import { Filter } from '../interfaces/query-builder.interface';
+import { Filter, SearchFilter } from '../interfaces/query-builder.interface';
 import { PersonFields } from '../types/person-fields.type';
 import { IPersonService } from '../interfaces/services/person-service.interface';
+import { Pagination } from '../classes/pagination';
 
 export class PersonService implements IPersonService {
   constructor(private readonly request: ClientRequest) {}
@@ -26,11 +27,9 @@ export class PersonService implements IPersonService {
   }
 
   async getBySearchQuery(
-    query: string,
+    filters: SearchFilter,
   ): Promise<IResponse<SearchPersonResponseDto>> {
-    return await this.request.get(VERSION.V1_2, `/person/search`, {
-      query,
-    });
+    return await this.request.get(VERSION.V1_2, `/person/search`, filters);
   }
 
   async getAwardsByFilters(

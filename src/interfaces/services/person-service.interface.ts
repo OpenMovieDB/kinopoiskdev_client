@@ -6,7 +6,7 @@ import {
   PersonAwardDocsResponseDto,
 } from '../api.interface';
 import { IPagination } from '../pagination.interface';
-import { Filter } from '../query-builder.interface';
+import { Filter, SearchFilter } from '../query-builder.interface';
 import { IResponse } from '../response.interface';
 
 export interface IPersonService {
@@ -14,7 +14,9 @@ export interface IPersonService {
   getByFilters(
     filters: Filter<PersonFields>,
   ): Promise<IResponse<PersonDocsResponseDto>>;
-  getBySearchQuery(query: string): Promise<IResponse<SearchPersonResponseDto>>;
+  getBySearchQuery(
+    filters: SearchFilter,
+  ): Promise<IResponse<SearchPersonResponseDto>>;
   getAwardsByFilters(
     filters: Record<string, string>,
     paginationParams?: IPagination,

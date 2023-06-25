@@ -14,24 +14,24 @@ import {
 export abstract class QueryBuilder<T extends IQueryFields>
   implements IQueryBuilder<T>
 {
-  protected query: any;
+  protected params: any;
 
   constructor() {
-    this.query = {};
+    this.params = {};
   }
 
   select(fields: SelectFields<T>[]): this {
-    this.query.selectFields = fields;
+    this.params.selectFields = fields;
     return this;
   }
 
   sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): this {
-    if (!this.query.sortField) {
-      this.query.sortField = [];
-      this.query.sortType = [];
+    if (!this.params.sortField) {
+      this.params.sortField = [];
+      this.params.sortType = [];
     }
-    this.query.sortField.push(field);
-    this.query.sortType.push(sortType);
+    this.params.sortField.push(field);
+    this.params.sortType.push(sortType);
     return this;
   }
 
@@ -39,32 +39,37 @@ export abstract class QueryBuilder<T extends IQueryFields>
     field: AllFields<T>,
     value: string | number | boolean | SPECIAL_VALUE,
   ): this {
-    if (!this.query[field]) this.query[field] = [];
-    this.query[field].push(value);
+    if (!this.params[field]) this.params[field] = [];
+    this.params[field].push(value);
     return this;
   }
 
   filterRange(field: T['NumberFields'], range: [number, number]): this {
-    this.query[field] = range.join('-');
+    this.params[field] = range.join('-');
     return this;
   }
 
   filterDateRange(field: T['DateFields'], range: [Date, Date]): this {
-    this.query[field] = range
+    this.params[field] = range
       .map(date => date.toISOString().split('T')[0])
       .join('-');
     return this;
   }
 
+  query(query: string): this {
+    this.params.query = query;
+    return this;
+  }
+
   paginate(page: number, limit: number): this {
     const pagination = new Pagination(page, limit);
-    this.query.page = pagination.page;
-    this.query.limit = pagination.limit;
+    this.params.page = pagination.page;
+    this.params.limit = pagination.limit;
     return this;
   }
 
   build(): Filter<T> {
-    return this.query;
+    return this.params;
   }
 }
 

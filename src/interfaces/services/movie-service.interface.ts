@@ -7,7 +7,7 @@ import {
   PossibleValueDto,
 } from '../api.interface';
 import { IPagination } from '../pagination.interface';
-import { Filter } from '../query-builder.interface';
+import { Filter, SearchFilter } from '../query-builder.interface';
 import { IResponse } from '../response.interface';
 
 export interface IMovieService {
@@ -16,7 +16,9 @@ export interface IMovieService {
   getByFilters(
     filters: Filter<MovieFields>,
   ): Promise<IResponse<MovieDocsResponseDtoV13>>;
-  getBySearchQuery(query: string): Promise<IResponse<SearchMovieResponseDto>>;
+  getBySearchQuery(
+    filters: SearchFilter,
+  ): Promise<IResponse<SearchMovieResponseDto>>;
   getAwardsByFilters(
     filters: Record<string, string>,
     paginationParams?: IPagination,

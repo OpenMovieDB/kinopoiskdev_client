@@ -9,7 +9,7 @@ import {
 import { IPagination } from '../interfaces/pagination.interface';
 import { VERSION } from '../enums/version.enum';
 import { IResponse } from '../interfaces/response.interface';
-import { Filter } from '../interfaces/query-builder.interface';
+import { Filter, SearchFilter } from '../interfaces/query-builder.interface';
 import { MovieFields } from '../types/movie-fields.type';
 import { IMovieService } from '../interfaces/services/movie-service.interface';
 
@@ -31,11 +31,9 @@ export class MovieService implements IMovieService {
   }
 
   async getBySearchQuery(
-    query: string,
+    filters: SearchFilter,
   ): Promise<IResponse<SearchMovieResponseDto>> {
-    return await this.request.get(VERSION.V1_2, `/movie/search`, {
-      query,
-    });
+    return await this.request.get(VERSION.V1_2, `/movie/search`, filters);
   }
 
   async getAwardsByFilters(

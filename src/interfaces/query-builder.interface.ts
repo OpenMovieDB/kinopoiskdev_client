@@ -1,7 +1,6 @@
 import { IQueryFields } from './query-fields.interface';
 import { SORT_TYPE } from '../enums/sort-type.enum';
 import { SPECIAL_VALUE } from '../enums/special-value.enum';
-import { MovieFields } from '../types/movie-fields.type';
 
 export type AllFields<T extends IQueryFields> =
   | T['BooleanFields']
@@ -30,6 +29,10 @@ export type Filter<T extends IQueryFields> = Partial<{
     | 'limit']: FiltersValue;
 }>;
 
+export type SearchFilter = Partial<{
+  [key in 'query' | 'page' | 'limit']: FiltersValue;
+}>;
+
 export interface IQueryBuilder<T extends IQueryFields> {
   select(fields: SelectFields<T>[]): IQueryBuilder<T>;
   sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): IQueryBuilder<T>;
@@ -45,6 +48,7 @@ export interface IQueryBuilder<T extends IQueryFields> {
     field: T['DateFields'],
     range: [Date, Date],
   ): IQueryBuilder<T>;
+  query(query: string): IQueryBuilder<T>;
   paginate(page: number, limit: number): IQueryBuilder<T>;
   build(): Filter<T>;
 }
