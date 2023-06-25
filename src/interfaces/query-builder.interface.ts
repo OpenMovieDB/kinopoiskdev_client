@@ -20,9 +20,15 @@ export type FiltersValue =
   | SPECIAL_VALUE
   | (string | number | boolean | SPECIAL_VALUE)[];
 
-export type Filter<T extends IQueryFields> = {
-  [key in AllFields<T>]: FiltersValue;
-};
+export type Filter<T extends IQueryFields> = Partial<{
+  [key in
+    | AllFields<T>
+    | 'selectFields'
+    | 'sortField'
+    | 'sortType'
+    | 'page'
+    | 'limit']: FiltersValue;
+}>;
 
 export interface IQueryBuilder<T extends IQueryFields> {
   select(fields: SelectFields<T>[]): IQueryBuilder<T>;
