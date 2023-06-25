@@ -6,10 +6,6 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/bundle.cjs.js',
-      format: 'cjs',
-    },
-    {
       file: 'dist/bundle.esm.js',
       format: 'esm',
     },
@@ -19,5 +15,5 @@ export default {
       name: 'kinopoiskdev',
     },
   ],
-  plugins: [typescript(), resolve(), commonjs()],
+  plugins: [typescript(), resolve()],
 };

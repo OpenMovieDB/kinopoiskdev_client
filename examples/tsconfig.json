@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "target": "esnext",
+      "lib": ["dom", "esnext"],
+      "declaration": true,
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+  }
+  
