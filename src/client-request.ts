@@ -1,5 +1,5 @@
 import { IResponseError } from './interfaces/error.interface';
-import { VERSIONS } from './enums/version.enum';
+import { VERSION } from './enums/version.enum';
 import { IResponse } from './interfaces/response.interface';
 
 export class ClientRequest {
@@ -25,7 +25,7 @@ export class ClientRequest {
   }
 
   async get<T, P extends Record<string, unknown>>(
-    version: VERSIONS,
+    version: VERSION,
     path: string,
     params?: P,
   ): Promise<IResponse<T>> {

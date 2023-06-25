@@ -6,28 +6,29 @@ import {
   PersonDocsResponseDto,
   SearchPersonResponseDto,
 } from '../interfaces/api.interface';
-import { VERSIONS } from '../enums/version.enum';
+import { VERSION } from '../enums/version.enum';
 import { IPagination } from '../interfaces/pagination.interface';
 import { Filter } from '../interfaces/query-builder.interface';
 import { PersonFields } from '../types/person-fields.type';
+import { IPersonService } from '../interfaces/services/person-service.interface';
 
-export class PersonService {
+export class PersonService implements IPersonService {
   constructor(private readonly request: ClientRequest) {}
 
   async getById(id: number): Promise<IResponse<Person>> {
-    return await this.request.get(VERSIONS.V1, `/person/${id}`);
+    return await this.request.get(VERSION.V1, `/person/${id}`);
   }
 
   async getByFilters(
     filters: Filter<PersonFields>,
   ): Promise<IResponse<PersonDocsResponseDto>> {
-    return await this.request.get(VERSIONS.V1, `/person`, filters);
+    return await this.request.get(VERSION.V1, `/person`, filters);
   }
 
   async getBySearchQuery(
     query: string,
   ): Promise<IResponse<SearchPersonResponseDto>> {
-    return await this.request.get(VERSIONS.V1_2, `/person/search`, {
+    return await this.request.get(VERSION.V1_2, `/person/search`, {
       query,
     });
   }
@@ -36,6 +37,6 @@ export class PersonService {
     filters: Record<string, string>,
     paginationParams?: IPagination,
   ): Promise<IResponse<PersonAwardDocsResponseDto>> {
-    return await this.request.get(VERSIONS.V1_1, `/movie/awards`, filters);
+    return await this.request.get(VERSION.V1_1, `/movie/awards`, filters);
   }
 }

@@ -1,5 +1,5 @@
 import { ClientRequest } from './client-request';
-import { VERSIONS } from './enums/version.enum';
+import { VERSION } from './enums/version.enum';
 const fetchMock = require('jest-fetch-mock');
 fetchMock.enableMocks();
 
@@ -16,7 +16,7 @@ describe('ClientRequest', () => {
       const testResponse = { data: 'test_data' };
       fetchMock.mockResponseOnce(JSON.stringify(testResponse), { status: 200 });
 
-      const response = await clientRequest.get(VERSIONS.V1, '/test_path');
+      const response = await clientRequest.get(VERSION.V1, '/test_path');
 
       expect(fetchMock).toHaveBeenCalledWith(
         'https://test_url.com/v1/test_path?',
@@ -29,7 +29,7 @@ describe('ClientRequest', () => {
       const testError = { error: 'test_error', message: 'test_message' };
       fetchMock.mockResponseOnce(JSON.stringify(testError), { status: 500 });
 
-      const response = await clientRequest.get(VERSIONS.V1, '/test_path');
+      const response = await clientRequest.get(VERSION.V1, '/test_path');
 
       expect(fetchMock).toHaveBeenCalledWith(
         'https://test_url.com/v1/test_path?',
@@ -52,7 +52,7 @@ describe('ClientRequest', () => {
       };
 
       const response = await clientRequest.get(
-        VERSIONS.V1,
+        VERSION.V1,
         '/test_path',
         queryParams,
       );
