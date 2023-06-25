@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/OpenMovieDB/kinopoiskdev_client#readme",
   "devDependencies": {
+    "@parcel/optimizer-terser": "^2.9.3",
     "@parcel/packager-ts": "^2.9.3",
     "@parcel/transformer-typescript-tsc": "^2.9.3",
     "@parcel/transformer-typescript-types": "^2.9.3",
