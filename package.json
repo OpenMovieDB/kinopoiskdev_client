@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "jest",
-    "release": "release-please --"
+    "release": "release-please --",
+    "publish": "npm publish"
   },
   "keywords": [],
   "author": "mdwitr0",
