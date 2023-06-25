@@ -8,6 +8,7 @@ import {
   AllFields,
   Filter,
   IQueryBuilder,
+  SelectFields,
 } from '../interfaces/query-builder.interface';
 
 export abstract class QueryBuilder<T extends IQueryFields>
@@ -19,7 +20,7 @@ export abstract class QueryBuilder<T extends IQueryFields>
     this.query = {};
   }
 
-  select(fields: AllFields<T>[]): this {
+  select(fields: SelectFields<T>[]): this {
     this.query.selectFields = fields;
     return this;
   }

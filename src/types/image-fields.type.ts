@@ -5,4 +5,5 @@ export interface ImageFields extends IQueryFields {
   StringFields: 'type' | 'url' | 'previewUrl' | 'language';
   DateFields: never;
   BooleanFields: never;
+  ObjectFields: never;
 }

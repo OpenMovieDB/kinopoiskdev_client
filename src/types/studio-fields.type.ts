@@ -5,4 +5,5 @@ export interface StudioFields extends IQueryFields {
   NumberFields: 'id' | 'movies.id';
   DateFields: never;
   BooleanFields: never;
+  ObjectFields: 'movies';
 }

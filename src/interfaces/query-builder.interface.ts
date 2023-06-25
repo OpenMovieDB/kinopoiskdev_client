@@ -9,6 +9,10 @@ export type AllFields<T extends IQueryFields> =
   | T['DateFields']
   | T['StringFields'];
 
+export type SelectFields<T extends IQueryFields> =
+  | AllFields<T>
+  | T['ObjectFields'];
+
 export type FiltersValue =
   | string
   | number
@@ -21,7 +25,7 @@ export type Filter<T extends IQueryFields> = {
 };
 
 export interface IQueryBuilder<T extends IQueryFields> {
-  select(fields: AllFields<T>[]): IQueryBuilder<T>;
+  select(fields: SelectFields<T>[]): IQueryBuilder<T>;
   sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): IQueryBuilder<T>;
   filterExact(
     field: AllFields<T>,

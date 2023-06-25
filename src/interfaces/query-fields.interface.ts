@@ -3,4 +3,5 @@ export interface IQueryFields {
   DateFields: string;
   NumberFields: string;
   BooleanFields: string;
+  ObjectFields: string;
 }

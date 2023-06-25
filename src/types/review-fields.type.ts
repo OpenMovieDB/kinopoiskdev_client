@@ -5,4 +5,5 @@ export interface ReviewFields extends IQueryFields {
   DateFields: 'date';
   NumberFields: 'movieId' | 'id' | 'authorId';
   BooleanFields: never;
+  ObjectFields: never;
 }

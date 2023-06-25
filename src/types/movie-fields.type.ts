@@ -81,4 +81,24 @@ export interface MovieFields extends IQueryFields {
     | 'releaseYears.start'
     | 'releaseYears.end';
   BooleanFields: 'ticketsOnSale' | 'isSeries';
+  ObjectFields:
+    | 'externalId'
+    | 'image'
+    | 'reviewInfo'
+    | 'seasonsInfo'
+    | 'videos'
+    | 'audience'
+    | 'releaseYears'
+    | 'budget'
+    | 'fees'
+    | 'watchability'
+    | 'persons'
+    | 'rating'
+    | 'genres'
+    | 'countries'
+    | 'similarMovies'
+    | 'sequelsAndPrequels'
+    | 'poster'
+    | 'backdrop'
+    | 'logo';
 }

@@ -32,4 +32,11 @@ export interface PersonFields extends IQueryFields {
     | 'spouses.children'
     | 'spouses.name';
   BooleanFields: never;
+  ObjectFields:
+    | 'movies'
+    | 'spouses'
+    | 'facts'
+    | 'profession'
+    | 'birthPlace'
+    | 'deathPlace';
 }

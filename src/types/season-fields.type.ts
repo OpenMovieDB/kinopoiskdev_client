@@ -5,4 +5,5 @@ export interface SeasonFields extends IQueryFields {
   DateFields: 'episodes.date';
   NumberFields: 'movieId' | 'number' | 'episodesCount' | 'episodes.number';
   BooleanFields: never;
+  ObjectFields: 'episodes';
 }
