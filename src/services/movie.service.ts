@@ -48,7 +48,7 @@ export class MovieService implements IMovieService {
   getPossibleValuesByField(
     field: string,
   ): Promise<IResponse<PossibleValueDto[]>> {
-    return this.request.get(VERSION.V1, `/movie/possibleValues`, {
+    return this.request.get(VERSION.V1, `/movie/possible-values-by-field`, {
       field,
     });
   }
