@@ -1,6 +1,6 @@
 {
   "name": "@openmoviedb/kinopoiskdev_ts_client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JS/TS библиотека для kinopoisk.dev API",
   "type": "module",
   "main": "dist/bundle.cjs.js",

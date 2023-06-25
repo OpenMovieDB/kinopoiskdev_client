@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.2...v1.0.3) (2023-06-25)
+
+
+### Bug Fixes
+
+* select does not allow the use of objects ([ad81a7b](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/commit/ad81a7bb6a7996419c4409ae785f3c15a407d674))
+
 ## [1.0.2](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.1...v1.0.2) (2023-06-25)
 
 
