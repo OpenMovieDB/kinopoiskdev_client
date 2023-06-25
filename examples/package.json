@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@openmoviedb/kinopoiskdev_ts_client": "^1.0.0"
+    "@openmoviedb/kinopoiskdev_client": "^1.0.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",

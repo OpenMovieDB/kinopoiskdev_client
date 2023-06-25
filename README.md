@@ -12,24 +12,24 @@
 ## Установка
 Установите библиотеку с помощью npm:
 ```bash
-npm i @openmoviedb/kinopoiskdev_ts_client
+npm i @openmoviedb/kinopoiskdev_client
 ```
 или yarn:
 ```bash
-yarn add @openmoviedb/kinopoiskdev_ts_client
+yarn add @openmoviedb/kinopoiskdev_client
 ```
 
 ## Использование
 Обьявите клиент и передайте в него токен:
 ```typescript
-import { KinopoiskDev } from '@openmoviedb/kinopoiskdev_ts_client';
+import { KinopoiskDev } from '@openmoviedb/kinopoiskdev_client';
 
 const kp = new KinopoiskDev('ВАШ ТОКЕН');
 ```
 
 ### Определитесь с сущностью и методом. Вот пример для получения фильма по ID:
 ```typescript
-import { KinopoiskDev } from '@openmoviedb/kinopoiskdev_ts_client';
+import { KinopoiskDev } from '@openmoviedb/kinopoiskdev_client';
 
 const kp = new KinopoiskDev('ВАШ ТОКЕН');
 
@@ -37,4 +37,4 @@ const {data} = await kp.movie.getMovieById(666);
 console.log(data);
 ```
 
-Больше примеров доступно в папке [examples](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/tree/main/examples)
+Больше примеров доступно в папке [examples](https://github.com/OpenMovieDB/kinopoiskdev_client/tree/main/examples)

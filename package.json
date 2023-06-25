@@ -1,6 +1,6 @@
 {
-  "name": "@openmoviedb/kinopoiskdev_ts_client",
-  "version": "1.0.3",
+  "name": "@openmoviedb/kinopoiskdev_client",
+  "version": "1.0.0",
   "description": "JS/TS библиотека для kinopoisk.dev API",
   "type": "module",
   "main": "dist/bundle.cjs.js",
@@ -21,12 +21,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenMovieDB/kinopoiskdev_ts_client.git"
+    "url": "git+https://github.com/OpenMovieDB/kinopoiskdev_client.git"
   },
   "bugs": {
-    "url": "https://github.com/OpenMovieDB/kinopoiskdev_ts_client/issues"
+    "url": "https://github.com/OpenMovieDB/kinopoiskdev_client/issues"
   },
-  "homepage": "https://github.com/OpenMovieDB/kinopoiskdev_ts_client#readme",
+  "homepage": "https://github.com/OpenMovieDB/kinopoiskdev_client#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",

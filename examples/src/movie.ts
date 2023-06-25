@@ -5,7 +5,7 @@ import {
   SORT_TYPE,
   Filter,
   MovieFields,
-} from '@openmoviedb/kinopoiskdev_ts_client';
+} from '@openmoviedb/kinopoiskdev_client';
 
 const kp = new KinopoiskDev('ВАШ ТОКЕН');
 
