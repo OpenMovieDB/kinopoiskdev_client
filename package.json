@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "test": "jest",
     "release": "release-please --",
-    "publish": "npm publish"
+    "publish": "npm run build && npm publish --access public "
   },
   "keywords": [],
   "author": "mdwitr0",
