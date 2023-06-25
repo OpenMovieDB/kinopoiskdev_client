@@ -1,0 +1,19 @@
+{
+  "name": "kinopoiskdev_client_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:movie": "ts-node ./src/movie.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openmoviedb/kinopoiskdev_ts_client": "^1.0.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
