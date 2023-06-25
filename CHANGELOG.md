@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.5](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.4...v1.3.5) (2023-06-25)
+
+
+### Bug Fixes
+
+* remove unused files on npm ([423b034](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/423b03472fd51be00547231827a17d81e35c60f1))
+* update version ([dd73df5](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/dd73df5cb1485fc870e58ed29d8855f17cba390e))
+
 ## [1.3.4](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.3...v1.3.4) (2023-06-25)
 
 
