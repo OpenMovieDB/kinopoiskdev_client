@@ -9,7 +9,7 @@ import {
 
 const kp = new KinopoiskDev('ВАШ ТОКЕН');
 
-// Получение списка фильмов за 2020-2023 годы с рейтингом от 7.5 до 10, у которых есть постер
+// Получение списка фильмов за 2020-2023 годы с рейтингом от 7.5 до 10, у которых есть постер и которые созданы в России или США
 // Этот пример использует query builder
 const getRelatedByQueryBuilderMovies = async () => {
   // Создаем билдер запросов для фильмов
@@ -26,6 +26,9 @@ const getRelatedByQueryBuilderMovies = async () => {
     .filterRange('rating.kp', [7.5, 10])
     // Добавляем фильтр для поиска фильмов с постером
     .filterExact('poster.url', SPECIAL_VALUE.NOT_NULL)
+    // Добавим страны
+    .filterExact('countries.name', 'США')
+    .filterExact('countries.name', 'Россия')
     // Добавляем сортировку по рейтингу
     .sort('rating.kp', SORT_TYPE.DESC)
     // Добавляем пагинацию и получаем 1 страницу по с 10 фильмами на странице
@@ -144,12 +147,58 @@ const getRandomMovieWithFilters = async () => {
   if (firstRes.error) console.log(firstRes.error, firstRes.message);
 };
 
+// Найти фильмы по названию
+const searchMovies = async () => {
+  // Отправляем запрос на поиск Аватара
+  const { data, error, message } = await kp.movie.getBySearchQuery(
+    'Аватар 2023',
+  );
+
+  if (data) {
+    const { docs, page, limit } = data;
+    console.log(`Страница ${page} из ${limit}`);
+    console.log(docs);
+  }
+
+  // Если будет ошибка, то выведем ее в консоль
+  if (error) console.log(error, message);
+};
+
+// Получить все возможные жанры
+const getGenres = async () => {
+  // Отправляем запрос на получение жанров
+  const { data, error, message } = await kp.movie.getPossibleValuesByField(
+    'genres.name',
+  );
+
+  if (data) console.log(data);
+
+  // Если будет ошибка, то выведем ее в консоль
+  if (error) console.log(error, message);
+};
+
+// Получить все возможные страны
+const getCountries = async () => {
+  // Отправляем запрос на получение стран
+  const { data, error, message } = await kp.movie.getPossibleValuesByField(
+    'countries.name',
+  );
+
+  if (data) console.log(data);
+
+  // Если будет ошибка, то выведем ее в консоль
+  if (error) console.log(error, message);
+};
+
 const bootstrap = async () => {
   await getMovieById();
   await getRelatedByQueryBuilderMovies();
   await getRelatedWithoutQueryBuilderMovies();
   await getRandomMovie();
   await getRandomMovieWithFilters();
+  await searchMovies();
+  await getGenres();
+  await getCountries();
 };
 
 bootstrap();

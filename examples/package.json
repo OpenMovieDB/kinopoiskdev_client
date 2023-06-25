@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start:movie": "ts-node-esm src/movie.ts"
+    "start:movie": "node dist/movie.js"
   },
   "author": "",
   "license": "ISC",
