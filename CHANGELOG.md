@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.1...v1.0.2) (2023-06-25)
+
+
+### Bug Fixes
+
+* types are not displayed after the build ([4a4ac36](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/commit/4a4ac366c4f573c4cacdf9d5220ea8b08d1e640e))
+
 ## [1.0.1](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.0...v1.0.1) (2023-06-25)
 
 
