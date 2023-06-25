@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.6](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.5...v1.3.6) (2023-06-25)
+
+
+### Bug Fixes
+
+* bundle is too big ([0196cfc](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/0196cfcd0fdcc944cdf2be12d59839949297af3a))
+
 ## [1.3.5](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.4...v1.3.5) (2023-06-25)
 
 
