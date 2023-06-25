@@ -1,5 +1,5 @@
 {
-  "name": "kinopoiskdev_ts_client",
+  "name": "@openmoviedb/kinopoiskdev_ts_client",
   "version": "1.0.0",
   "description": "JS/TS библиотека для kinopoisk.dev API",
   "type": "module",
