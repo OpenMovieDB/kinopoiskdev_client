@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.2...v1.3.3) (2023-06-25)
+
+
+### Bug Fixes
+
+* commonjs causing conflicts ([96e740a](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/96e740ac8fc9b88d68be38c9a1fb7f5522d84e63))
+
 ## [1.3.2](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.1...v1.3.2) (2023-06-25)
 
 
