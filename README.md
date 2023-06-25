@@ -8,6 +8,15 @@
 ## Действия перед началом работы
 1. Получите токен на в телеграм боте [@kinopoiskdev_bot](https://t.me/kinopoiskdev_bot)
 2. Изучите [документацию](https://kinopoisk.dev/documentation). Она оформлена в формате OpenAPI и поможет вам понять, какие данные можно получить и какие параметры можно передать в запросе.
-3. Установите библиотеку с помощью `npm install @openmoviedb/kinopoiskdev_ts_client` или `yarn add @openmoviedb/kinopoiskdev_ts_client`.
+
+## Установка
+Установите библиотеку с помощью npm:
+```bash
+npm i @openmoviedb/kinopoiskdev_ts_client
+```
+или yarn:
+```bash
+yarn add @openmoviedb/kinopoiskdev_ts_client
+```
 
 ## Использование
