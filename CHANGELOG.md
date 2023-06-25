@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.3...v1.1.0) (2023-06-25)
+
+
+### Features
+
+* **examples:** add example package.json and movie.ts script with usage of kinopoiskdev_ts_client API ([91ad1c1](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/commit/91ad1c1c5edc26ca60b050a1654bc42ee939bd95))
+
 ## [1.0.3](https://github.com/OpenMovieDB/kinopoiskdev_ts_client/compare/v1.0.2...v1.0.3) (2023-06-25)
 
 
