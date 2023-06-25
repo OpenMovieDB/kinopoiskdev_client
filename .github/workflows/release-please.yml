@@ -12,4 +12,3 @@ jobs:
           release-type: node
           package-name: release-please-action
           bump-patch-for-minor-pre-major: true
-          token: ${{ secrets.RELEASE_TOKEN }}
