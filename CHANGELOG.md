@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.7](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.6...v1.3.7) (2023-06-26)
+
+
+### Bug Fixes
+
+* invalid url in getPossibleValuesByField ([6b35da3](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/6b35da32ef22cac401f3c5b60229dd22d611fa05))
+* search methods do not use pagination ([b989bd9](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/b989bd98f06126f0b0a26813fb8921c42e030b1d))
+
 ## [1.3.6](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.5...v1.3.6) (2023-06-25)
 
 
