@@ -80,7 +80,7 @@ const getRelatedByQueryBuilderMovies = async () => {
     .paginate(1, 10)
     .build();
 
-  const { data } = await kp.movie.search(query);
+  const { data, error, message } = await kp.movie.search(query);
 
   console.log(data, error, message);
 };
