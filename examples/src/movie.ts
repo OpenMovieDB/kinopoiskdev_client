@@ -149,10 +149,17 @@ const getRandomMovieWithFilters = async () => {
 
 // Найти фильмы по названию
 const searchMovies = async () => {
-  // Отправляем запрос на поиск Аватара
-  const { data, error, message } = await kp.movie.getBySearchQuery(
-    'Аватар 2023',
-  );
+  const queryBuilder = new MovieQueryBuilder();
+  // Создаем запрос для поиска фильмов по подходящих под наш запрос
+  const query = queryBuilder
+    // Указываем что хотим получить фильм под названием Аватар вышедший в 2022
+    .query('Аватар 2022')
+    // Добавляем пагинацию и получаем 1 страницу по с 10 фильмами на странице
+    .paginate(1, 10)
+    // Собираем запрос
+    .build();
+
+  const { data, error, message } = await kp.movie.getBySearchQuery(query);
 
   if (data) {
     const { docs, page, limit } = data;
