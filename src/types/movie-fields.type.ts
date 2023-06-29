@@ -100,5 +100,7 @@ export interface MovieFields extends IQueryFields {
     | 'sequelsAndPrequels'
     | 'poster'
     | 'backdrop'
-    | 'logo';
+    | 'logo'
+    | 'names'
+    | 'facts';
 }
