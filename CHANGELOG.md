@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.8](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.7...v1.3.8) (2023-07-04)
+
+
+### Bug Fixes
+
+* update package description to be more concise and accurate ([1988367](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/19883673211d599e7aaa1209d4d510a09d5c99cf))
+
 ## [1.3.7](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.6...v1.3.7) (2023-06-26)
 
 
