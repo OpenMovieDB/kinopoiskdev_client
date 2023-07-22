@@ -10,6 +10,9 @@ import {
   IQueryBuilder,
   SelectFields,
 } from '../interfaces/query-builder.interface';
+import { ReviewFields } from '../types/review-fields.type';
+import { SeasonFields } from '../types/season-fields.type';
+import { ImageFields, StudioFields } from '../types';
 
 export abstract class QueryBuilder<T extends IQueryFields>
   implements IQueryBuilder<T>
@@ -75,7 +78,7 @@ export abstract class QueryBuilder<T extends IQueryFields>
 
 export class MovieQueryBuilder extends QueryBuilder<MovieFields> {}
 export class PersonQueryBuilder extends QueryBuilder<PersonFields> {}
-export class ReviewQueryBuilder extends QueryBuilder<PersonFields> {}
-export class SeasonQueryBuilder extends QueryBuilder<PersonFields> {}
-export class StudioQueryBuilder extends QueryBuilder<PersonFields> {}
-export class ImageQueryBuilder extends QueryBuilder<PersonFields> {}
+export class ReviewQueryBuilder extends QueryBuilder<ReviewFields> {}
+export class SeasonQueryBuilder extends QueryBuilder<SeasonFields> {}
+export class StudioQueryBuilder extends QueryBuilder<StudioFields> {}
+export class ImageQueryBuilder extends QueryBuilder<ImageFields> {}
