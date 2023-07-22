@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.9](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.8...v1.3.9) (2023-07-22)
+
+
+### Bug Fixes
+
+* **query.builder:** incorrect field types are used ([ee31ef1](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/ee31ef1a0a8d1dfa86b6c4de6a81903a268c91df))
+
 ## [1.3.8](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.7...v1.3.8) (2023-07-04)
 
 
