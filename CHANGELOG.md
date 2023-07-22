@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.10](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.9...v1.3.10) (2023-07-22)
+
+
+### Bug Fixes
+
+* update build ([a217822](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/a217822d6688a9c131d4ce1124e5466544881dd9))
+
 ## [1.3.9](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.8...v1.3.9) (2023-07-22)
 
 
