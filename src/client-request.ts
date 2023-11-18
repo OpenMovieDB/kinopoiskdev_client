@@ -24,7 +24,7 @@ export class ClientRequest {
     return urlSearchParams.toString();
   }
 
-  async get<T, P extends Record<string, unknown>>(
+  async get<T, P>(
     version: VERSION,
     path: string,
     params?: P,

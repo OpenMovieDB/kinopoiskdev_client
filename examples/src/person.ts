@@ -1,6 +1,6 @@
 import {
   KinopoiskDev,
-  SORT_TYPE,
+  SortType,
   PersonQueryBuilder,
 } from '@openmoviedb/kinopoiskdev_client';
 
@@ -20,7 +20,7 @@ const getRelatedByQueryBuilderPersons = async () => {
     .filterExact('profession.value', 'Актер')
     .filterExact('profession.value', 'Режиссер')
     // Добавляем сортировку по id
-    .sort('id', SORT_TYPE.DESC)
+    .sort('id', SortType.DESC)
     // Добавляем пагинацию и получаем 1 страницу по с 10 персонами на странице
     .paginate(1, 10)
     // Собираем запрос

@@ -1,4 +1,4 @@
-import { SORT_TYPE } from '../enums/sort-type.enum';
+import { SortType } from '../enums/sort-type.enum';
 import { QueryBuilder, MovieQueryBuilder } from './query.builder';
 
 describe('QueryBuilder', () => {
@@ -19,10 +19,10 @@ describe('QueryBuilder', () => {
   });
 
   it('should sort fields correctly', () => {
-    queryBuilder.sort('field1', SORT_TYPE.ASC);
+    queryBuilder.sort('field1', SortType.ASC);
     const query = queryBuilder.build();
     expect(query.sortField).toEqual(['field1']);
-    expect(query.sortType).toEqual([SORT_TYPE.ASC]);
+    expect(query.sortType).toEqual([SortType.ASC]);
   });
 
   it('should filter fields correctly', () => {

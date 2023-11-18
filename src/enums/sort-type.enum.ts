@@ -1,4 +1,4 @@
-export enum SORT_TYPE {
+export enum SortType {
   ASC = '1',
   DESC = '-1',
 }

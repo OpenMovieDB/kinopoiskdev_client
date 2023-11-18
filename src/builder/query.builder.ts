@@ -1,4 +1,4 @@
-import { SORT_TYPE } from '../enums/sort-type.enum';
+import { SortType } from '../enums/sort-type.enum';
 import { SPECIAL_VALUE } from '../enums/special-value.enum';
 import { IQueryFields } from '../interfaces/query-fields.interface';
 import { MovieFields } from '../types/movie-fields.type';
@@ -28,7 +28,7 @@ export abstract class QueryBuilder<T extends IQueryFields>
     return this;
   }
 
-  sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): this {
+  sort(field: AllFields<T>, sortType: SortType | '1' | '-1'): this {
     if (!this.params.sortField) {
       this.params.sortField = [];
       this.params.sortType = [];
@@ -40,10 +40,22 @@ export abstract class QueryBuilder<T extends IQueryFields>
 
   filterExact(
     field: AllFields<T>,
-    value: string | number | boolean | SPECIAL_VALUE,
+    value: string | number | boolean,
   ): this {
     if (!this.params[field]) this.params[field] = [];
     this.params[field].push(value);
+    return this;
+  }
+  
+  filterInclude(field: AllFields<T>, value: string | number | boolean): this {
+    if (!this.params[field]) this.params[field] = [];
+    this.params[field].push('%2B' + value);
+    return this;
+  }
+
+  filterExclude(field: AllFields<T>, value: string | number | boolean): this {
+    if (!this.params[field]) this.params[field] = [];
+    this.params[field].push('%21' + value);
     return this;
   }
 

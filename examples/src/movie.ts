@@ -2,7 +2,7 @@ import {
   KinopoiskDev,
   MovieQueryBuilder,
   SPECIAL_VALUE,
-  SORT_TYPE,
+  SortType,
   Filter,
   MovieFields,
 } from '@openmoviedb/kinopoiskdev_client';
@@ -30,7 +30,7 @@ const getRelatedByQueryBuilderMovies = async () => {
     .filterExact('countries.name', 'США')
     .filterExact('countries.name', 'Россия')
     // Добавляем сортировку по рейтингу
-    .sort('rating.kp', SORT_TYPE.DESC)
+    .sort('rating.kp', SortType.DESC)
     // Добавляем пагинацию и получаем 1 страницу по с 10 фильмами на странице
     .paginate(1, 10)
     // Собираем запрос
