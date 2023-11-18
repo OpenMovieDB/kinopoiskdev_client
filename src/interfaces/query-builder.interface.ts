@@ -1,5 +1,5 @@
 import { IQueryFields } from './query-fields.interface';
-import { SORT_TYPE } from '../enums/sort-type.enum';
+import { SortType } from '../enums/sort-type.enum';
 import { SPECIAL_VALUE } from '../enums/special-value.enum';
 
 export type AllFields<T extends IQueryFields> =
@@ -16,8 +16,7 @@ export type FiltersValue =
   | string
   | number
   | boolean
-  | SPECIAL_VALUE
-  | (string | number | boolean | SPECIAL_VALUE)[];
+  | (string | number | boolean )[];
 
 export type Filter<T extends IQueryFields> = Partial<{
   [key in
@@ -35,7 +34,7 @@ export type SearchFilter = Partial<{
 
 export interface IQueryBuilder<T extends IQueryFields> {
   select(fields: SelectFields<T>[]): IQueryBuilder<T>;
-  sort(field: AllFields<T>, sortType: SORT_TYPE | '1' | '-1'): IQueryBuilder<T>;
+  sort(field: AllFields<T>, sortType: SortType | '1' | '-1'): IQueryBuilder<T>;
   filterExact(
     field: AllFields<T>,
     value: string | number | boolean | SPECIAL_VALUE,

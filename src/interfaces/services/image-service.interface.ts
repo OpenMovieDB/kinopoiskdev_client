@@ -1,9 +1,9 @@
-import { ClientRequest } from '../../client-request';
 import { IResponse } from '../response.interface';
-import { ImageDocsResponseDto } from '../api.interface';
+import { ImageRequestV1_4 } from '../dto/image/image-request.dto';
+import { ImageDocsResponseDtoV1_4 } from '../dto/image/image-docs-response.dto';
 
 export interface IImageService {
   getByFilters(
-    filters: Record<string, string>,
-  ): Promise<IResponse<ImageDocsResponseDto>>;
+    filters:  ImageRequestV1_4 | Record<string, string>,
+  ): Promise<IResponse<ImageDocsResponseDtoV1_4>>
 }

@@ -1,7 +1,11 @@
 import { ClientRequest } from './client-request';
 import { VERSION } from './enums/version.enum';
+import { KinopoiskDev,} from './kinopoiskdev';
+import { ImageTypeV1_4, WithQueryStrategyV1_4 } from './interfaces/dto/image/image-request.dto';
 const fetchMock = require('jest-fetch-mock');
 fetchMock.enableMocks();
+
+const Exclude = <T>(value: T) => `!${value}` as unknown as WithQueryStrategyV1_4<T>;
 
 describe('ClientRequest', () => {
   let clientRequest: ClientRequest;
@@ -62,6 +66,13 @@ describe('ClientRequest', () => {
         { headers: { 'X-API-KEY': 'test_key' } },
       );
       expect(response.data).toEqual(testResponse);
+
+      const client = new KinopoiskDev('test_key');
+
+      client.image.getByFilters({
+        page: 1,
+        type: [ImageTypeV1_4.cover, Exclude(ImageTypeV1_4.cover)],
+      });
     });
   });
 });
