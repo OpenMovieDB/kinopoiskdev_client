@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.10...v1.4.0) (2023-11-18)
+
+
+### Features
+
+* add v1.4 to builder ([1d0c5bf](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/1d0c5bf9b5bfa2f7973af7de7cb00e4825d0c199))
+* update images methods to v1.4 ([7e03e46](https://github.com/OpenMovieDB/kinopoiskdev_client/commit/7e03e46ab60b330d4a08377e088674bdef89c927))
+
 ## [1.3.10](https://github.com/OpenMovieDB/kinopoiskdev_client/compare/v1.3.9...v1.3.10) (2023-07-22)
 
 
