@@ -1,41 +1,31 @@
 import { ClientRequest } from '../client-request';
-import { IResponse } from '../interfaces/response.interface';
-import {
-  Person,
-  PersonAwardDocsResponseDto,
-  PersonDocsResponseDto,
-  SearchPersonResponseDto,
-} from '../interfaces/api.interface';
 import { VERSION } from '../enums/version.enum';
-import { IPagination } from '../interfaces/pagination.interface';
+import { MeiliPersonEntity, Person, PersonAward, WrapperDocsResponseDto } from '../interfaces';
 import { Filter, SearchFilter } from '../interfaces/query-builder.interface';
-import { PersonFields } from '../types/person-fields.type';
-import { IPersonService } from '../interfaces/services/person-service.interface';
-import { Pagination } from '../classes/pagination';
+import { PersonFields } from '../interfaces/services/person/person-fields.type';
 
-export class PersonService implements IPersonService {
+export class PersonService {
   constructor(private readonly request: ClientRequest) {}
 
-  async getById(id: number): Promise<IResponse<Person>> {
-    return await this.request.get(VERSION.V1, `/person/${id}`);
+  async getById(id: number): Promise<WrapperDocsResponseDto<Person>> {
+    return await this.request.get<Person>(VERSION.V1_4, `/person/${id}`);
   }
 
   async getByFilters(
     filters: Filter<PersonFields>,
-  ): Promise<IResponse<PersonDocsResponseDto>> {
-    return await this.request.get(VERSION.V1, `/person`, filters);
+  ): Promise<WrapperDocsResponseDto<Person>> {
+    return await this.request.get<Person, typeof filters>(VERSION.V1_4, `/person`, filters);
   }
 
   async getBySearchQuery(
     filters: SearchFilter,
-  ): Promise<IResponse<SearchPersonResponseDto>> {
-    return await this.request.get(VERSION.V1_2, `/person/search`, filters);
+  ): Promise<WrapperDocsResponseDto<MeiliPersonEntity>> {
+    return await this.request.get<MeiliPersonEntity, typeof filters>(VERSION.V1_4, `/person/search`, filters);
   }
 
   async getAwardsByFilters(
-    filters: Record<string, string>,
-    paginationParams?: IPagination,
-  ): Promise<IResponse<PersonAwardDocsResponseDto>> {
-    return await this.request.get(VERSION.V1_1, `/movie/awards`, filters);
+    filters: Record<string, string>
+  ): Promise<WrapperDocsResponseDto<PersonAward>> {
+    return await this.request.get<PersonAward, typeof filters>(VERSION.V1_4, `/movie/awards`, filters);
   }
 }

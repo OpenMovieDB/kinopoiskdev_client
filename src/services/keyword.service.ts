@@ -1,17 +1,14 @@
 import { ClientRequest } from '../client-request';
-import { IResponse } from '../interfaces/response.interface';
-import { KeywordDocsResponseDto } from '../interfaces/api.interface';
 import { VERSION } from '../enums/version.enum';
+import { Keyword, KeywordFields, WrapperDocsResponseDto } from '../interfaces';
 import { Filter } from '../interfaces/query-builder.interface';
-import { KeywordFields } from '../types/keyword-fields.type';
-import { IKeywordService } from '../interfaces/services/keyword-service.interface';
 
-export class KeywordService implements IKeywordService {
+export class KeywordService {
   constructor(private readonly request: ClientRequest) {}
 
   async getByFilters(
     filters: Filter<KeywordFields>,
-  ): Promise<IResponse<KeywordDocsResponseDto>> {
-    return await this.request.get(VERSION.V1, `/keyword`, filters);
+  ): Promise<WrapperDocsResponseDto<Keyword>> {
+    return await this.request.get<Keyword, typeof filters>(VERSION.V1_4, `/keyword`, filters);
   }
 }

@@ -1,17 +1,15 @@
 import { ClientRequest } from '../client-request';
-import { IResponse } from '../interfaces/response.interface';
-import { ReviewDocsResponseDto } from '../interfaces/api.interface';
 import { VERSION } from '../enums/version.enum';
+import { Review, WrapperDocsResponseDto } from '../interfaces';
 import { Filter } from '../interfaces/query-builder.interface';
-import { ReviewFields } from '../types/review-fields.type';
-import { IReviewService } from '../interfaces/services/review-service.interface';
+import { ReviewFields } from '../interfaces/services/review/review-fields.type';
 
-export class ReviewService implements IReviewService {
+export class ReviewService {
   constructor(private readonly request: ClientRequest) {}
 
   async getByFilters(
     filters: Filter<ReviewFields>,
-  ): Promise<IResponse<ReviewDocsResponseDto>> {
-    return await this.request.get(VERSION.V1, `/review`, filters);
+  ): Promise<WrapperDocsResponseDto<Review>> {
+    return await this.request.get<Review, typeof filters>(VERSION.V1_4, `/review`, filters);
   }
 }

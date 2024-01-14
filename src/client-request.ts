@@ -1,6 +1,5 @@
-import { IResponseError } from './interfaces/error.interface';
 import { VERSION } from './enums/version.enum';
-import { IResponse } from './interfaces/response.interface';
+import { DocsResponse, ErrorResponse, IResponse } from './interfaces';
 
 export class ClientRequest {
   constructor(
@@ -24,11 +23,11 @@ export class ClientRequest {
     return urlSearchParams.toString();
   }
 
-  async get<T, P>(
+  async get<T, P = any>(
     version: VERSION,
     path: string,
     params?: P,
-  ): Promise<IResponse<T>> {
+  ): Promise<IResponse<DocsResponse<T>>> {
     try {
       const response = await fetch(
         `${this.API_URL}/${version}${path}?${this.queryParams(params as any)}`,
@@ -37,7 +36,7 @@ export class ClientRequest {
 
       // Если статус HTTP-ответа не 200, выбрасывается ошибка
       if (!response.ok) {
-        const error: IResponseError = await response.json();
+        const error: ErrorResponse = await response.json();
         throw new Error(
           JSON.stringify({
             status: response.status,

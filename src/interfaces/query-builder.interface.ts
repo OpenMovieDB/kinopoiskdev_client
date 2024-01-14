@@ -31,23 +31,3 @@ export type Filter<T extends IQueryFields> = Partial<{
 export type SearchFilter = Partial<{
   [key in 'query' | 'page' | 'limit']: FiltersValue;
 }>;
-
-export interface IQueryBuilder<T extends IQueryFields> {
-  select(fields: SelectFields<T>[]): IQueryBuilder<T>;
-  sort(field: AllFields<T>, sortType: SortType | '1' | '-1'): IQueryBuilder<T>;
-  filterExact(
-    field: AllFields<T>,
-    value: string | number | boolean | SPECIAL_VALUE,
-  ): IQueryBuilder<T>;
-  filterRange(
-    field: T['NumberFields'],
-    range: [number, number],
-  ): IQueryBuilder<T>;
-  filterDateRange(
-    field: T['DateFields'],
-    range: [Date, Date],
-  ): IQueryBuilder<T>;
-  query(query: string): IQueryBuilder<T>;
-  paginate(page: number, limit: number): IQueryBuilder<T>;
-  build(): Filter<T>;
-}

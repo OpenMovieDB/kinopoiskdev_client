@@ -1,4 +1,4 @@
-import { IQueryFields } from '../interfaces/query-fields.interface';
+import { IQueryFields } from "../../query-fields.interface";
 
 export interface KeywordFields extends IQueryFields {
   StringFields: 'title';

@@ -1,6 +1,4 @@
-import { IPagination } from '../interfaces/pagination.interface';
-
-export class Pagination implements IPagination {
+export class Pagination {
   public page: number;
   public limit: number;
   constructor(page: number, limit: number) {

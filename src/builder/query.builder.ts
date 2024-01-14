@@ -1,27 +1,21 @@
 import { SortType } from '../enums/sort-type.enum';
-import { SPECIAL_VALUE } from '../enums/special-value.enum';
 import { IQueryFields } from '../interfaces/query-fields.interface';
-import { MovieFields } from '../types/movie-fields.type';
-import { PersonFields } from '../types/person-fields.type';
+import { MovieFields } from '../interfaces/services/movie/movie-fields.type';
+import { PersonFields } from '../interfaces/services/person/person-fields.type';
 import { Pagination } from '../classes/pagination';
 import {
   AllFields,
   Filter,
-  IQueryBuilder,
   SelectFields,
 } from '../interfaces/query-builder.interface';
-import { ReviewFields } from '../types/review-fields.type';
-import { SeasonFields } from '../types/season-fields.type';
-import { ImageFields, StudioFields } from '../types';
+import { ReviewFields } from '../interfaces/services/review/review-fields.type';
+import { SeasonFields } from '../interfaces/services/season/season-fields.type';
+import { ImageFields } from '../interfaces/services/image/image-fields.type';
+import { StudioFields } from '../interfaces/services/studio/studio-fields.type';
 
-export abstract class QueryBuilder<T extends IQueryFields>
-  implements IQueryBuilder<T>
+export class QueryBuilder<T extends IQueryFields>
 {
-  protected params: any;
-
-  constructor() {
-    this.params = {};
-  }
+  private params: any = {};
 
   select(fields: SelectFields<T>[]): this {
     this.params.selectFields = fields;

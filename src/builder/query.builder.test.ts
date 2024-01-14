@@ -1,15 +1,11 @@
 import { SortType } from '../enums/sort-type.enum';
-import { QueryBuilder, MovieQueryBuilder } from './query.builder';
+import { MovieQueryBuilder, QueryBuilder } from './query.builder';
 
 describe('QueryBuilder', () => {
   let queryBuilder: QueryBuilder<any>;
 
   beforeEach(() => {
     queryBuilder = new MovieQueryBuilder();
-  });
-
-  it('should construct a new instance', () => {
-    expect(queryBuilder).toBeInstanceOf(QueryBuilder);
   });
 
   it('should select fields correctly', () => {

@@ -2,7 +2,7 @@ import { ClientRequest } from './client-request';
 import { VERSION } from './enums/version.enum';
 import { KinopoiskDev,} from './kinopoiskdev';
 import { ImageTypeV1_4, WithQueryStrategyV1_4 } from './interfaces/dto/image/image-request.dto';
-const fetchMock = require('jest-fetch-mock');
+import fetchMock from 'jest-fetch-mock';
 fetchMock.enableMocks();
 
 const Exclude = <T>(value: T) => `!${value}` as unknown as WithQueryStrategyV1_4<T>;

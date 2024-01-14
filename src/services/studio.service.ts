@@ -1,20 +1,15 @@
 import { ClientRequest } from '../client-request';
-import { IResponse } from '../interfaces/response.interface';
-import { Studio, StudioDocsResponseDto } from '../interfaces/api.interface';
 import { VERSION } from '../enums/version.enum';
+import { Studio, WrapperDocsResponseDto } from '../interfaces';
 import { Filter } from '../interfaces/query-builder.interface';
-import { StudioFields } from '../types/studio-fields.type';
-import { IStudioService } from '../interfaces/services/studio-service.interface';
+import { StudioFields } from '../interfaces/services/studio/studio-fields.type';
 
-export class StudioService implements IStudioService {
+export class StudioService {
   constructor(private readonly request: ClientRequest) {}
 
-  async getById(id: number): Promise<IResponse<Studio>> {
-    return await this.request.get(VERSION.V1, `/studio/${id}`);
-  }
   async getByFilters(
     filters: Filter<StudioFields>,
-  ): Promise<IResponse<StudioDocsResponseDto>> {
-    return await this.request.get(VERSION.V1, `/studio`, filters);
+  ): Promise<WrapperDocsResponseDto<Studio>> {
+    return await this.request.get<Studio, typeof filters>(VERSION.V1_4, `/studio`, filters);
   }
 }
