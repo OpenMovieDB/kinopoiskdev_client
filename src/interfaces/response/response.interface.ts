@@ -55,13 +55,13 @@ export interface ErrorResponse {
    * @type {string}
    * @memberof ErrorResponse
    */
-  message: string;
+  message: string | null;
   /**
    *
    * @type {string}
    * @memberof ErrorResponse
    */
-  error: string;
+  error: string | null;
 }
 
 /**
