@@ -7,11 +7,13 @@ export default defineConfig(() => {
     build: {
       emptyOutDir: true,
       minify: true,
+      manifest: true,
+      reportCompressedSize: true,
       lib: {
         entry: resolve(__dirname, "./src/index.ts"),
         name: "lib",
         fileName: (format) => `lib.${format}.js`,
-        formats: ["cjs", 'es', 'iife', 'umd'],
+        formats: ["cjs", 'es', 'umd'],
       },
       outDir: "dist",
     },
