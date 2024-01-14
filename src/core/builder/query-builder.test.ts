@@ -1,4 +1,5 @@
-import { SortType } from '../../interfaces/enums/sort-type.enum';
+import { beforeEach, describe, expect, it } from 'vitest'
+import { SortType } from '@/interfaces/enums/sort-type.enum';
 import { MovieQueryBuilder, QueryBuilder } from './query-builder';
 
 describe('QueryBuilder', () => {

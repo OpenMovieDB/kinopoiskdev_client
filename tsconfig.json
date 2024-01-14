@@ -1,13 +1,4 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist",
-    "module": "esnext",
-    "target": "esnext",
-    "lib": ["dom", "esnext"],
-    "declaration": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+    "extends": "./tsconfig.base.json",
+    "include": ["./src/**/*"]
 }

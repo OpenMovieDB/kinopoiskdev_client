@@ -1,10 +1,9 @@
-import { ClientRequest } from '../../core/request/client-request';
-import { VERSION } from '../../interfaces/enums/version.enum';
-import { Filter } from '../../core/builder/query-builder.interface';
+import { ClientRequest } from '@/core/request/client-request';
+import { VERSION } from '@/interfaces/enums/version.enum';
+import { Filter } from '@/core/builder/query-builder.interface';
+import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { KeywordFields } from './keyword-fields.dto';
 import { Keyword } from './keyword-response.dto';
-import { WrapperDocsResponseDto } from '../../interfaces/response/response.interface';
-
 export class KeywordService {
   constructor(private readonly request: ClientRequest) {}
 

@@ -1,5 +1,5 @@
-import { VERSION } from '../../interfaces/enums/version.enum';
-import { DocsResponse, ErrorResponse, IResponse } from '../../interfaces/response/response.interface';
+import { VERSION } from '@/interfaces/enums/version.enum';
+import { DocsResponse, ErrorResponse, IResponse } from '@/interfaces/response/response.interface';
 
 export class ClientRequest {
   constructor(

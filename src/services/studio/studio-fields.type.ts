@@ -1,4 +1,4 @@
-import { IQueryFields } from '../../core/builder/query-fields.interface';
+import { IQueryFields } from '@/core/builder/query-fields.interface';
 
 export interface StudioFields extends IQueryFields {
   StringFields: 'title' | 'subType' | 'type';

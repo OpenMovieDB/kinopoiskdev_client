@@ -1,4 +1,4 @@
-import { Nomination } from "../person/person-response.dto";
+import { Nomination } from "@/services/person/person-response.dto";
 
 /**
  *

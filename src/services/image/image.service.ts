@@ -1,7 +1,7 @@
-import { Filter } from '../../core/builder/query-builder.interface';
-import { ClientRequest } from '../../core/request/client-request';
-import { VERSION } from '../../interfaces/enums/version.enum';
-import { WrapperDocsResponseDto } from '../../interfaces/response/response.interface';
+import { Filter } from '@/core/builder/query-builder.interface';
+import { ClientRequest } from '@/core/request/client-request';
+import { VERSION } from '@/interfaces/enums/version.enum';
+import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { ImageFields } from './image-fields.dto';
 import { Image } from './image-response.dto';
 

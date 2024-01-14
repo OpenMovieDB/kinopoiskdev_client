@@ -1,10 +1,9 @@
-import { ClientRequest } from '../../core/request/client-request';
-import { VERSION } from '../../interfaces/enums/version.enum';
-import { Filter, SearchFilter } from '../../core/builder/query-builder.interface';
+import { ClientRequest } from '@/core/request/client-request';
+import { VERSION } from '@/interfaces/enums/version.enum';
+import { Filter, SearchFilter } from '@/core/builder/query-builder.interface';
+import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MovieFields } from './movie-fields.dto';
 import { MeiliMovieEntity, MovieDtoV14, PartialTypeClass, PossibleValueDto } from './movie-response.dto';
-import { WrapperDocsResponseDto } from '../../interfaces/response/response.interface';
-
 export class MovieService {
   constructor(private readonly request: ClientRequest) {}
 

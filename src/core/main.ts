@@ -1,10 +1,10 @@
-import { ReviewService } from '../services/review/review.service';
-import { SeasonService } from '../services/season/season.service';
-import { MovieService } from '../services/movie/movie.service';
-import { PersonService } from '../services/person/person.service';
-import { KeywordService } from '../services/keyword/keyword.service';
-import { ImageService } from '../services/image/image.service';
-import { StudioService } from '../services/studio/studio.service';
+import { ReviewService } from '@/services/review/review.service';
+import { SeasonService } from '@/services/season/season.service';
+import { MovieService } from '@/services/movie/movie.service';
+import { PersonService } from '@/services/person/person.service';
+import { KeywordService } from '@/services/keyword/keyword.service';
+import { ImageService } from '@/services/image/image.service';
+import { StudioService } from '@/services/studio/studio.service';
 import { ClientRequest } from './request/client-request';
 
 export * from '../services'

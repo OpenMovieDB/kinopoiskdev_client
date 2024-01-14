@@ -1,16 +1,18 @@
-import { SortType } from '../../interfaces/enums/sort-type.enum';
+import { SortType } from '@/interfaces/enums/sort-type.enum';
 import { IQueryFields } from './query-fields.interface';
-import { MovieFields } from '../../services/movie/movie-fields.dto';
-import { PersonFields } from '../../services/person/person-fields.dto';
+import { MovieFields } from '@/services/movie/movie-fields.dto';
+import { PersonFields } from '@/services/person/person-fields.dto';
+
+import { ReviewFields } from '@/services/review/review-fields.dto';
+import { SeasonFields } from '@/services/season/season-fields.dto';
+import { ImageFields } from '@/services/image/image-fields.dto';
+import { StudioFields } from '@/services/studio/studio-fields.type';
+
 import {
   AllFields,
   Filter,
   SelectFields,
 } from './query-builder.interface';
-import { ReviewFields } from '../../services/review/review-fields.dto';
-import { SeasonFields } from '../../services/season/season-fields.dto';
-import { ImageFields } from '../../services/image/image-fields.dto';
-import { StudioFields } from '../../services/studio/studio-fields.type';
 
 export class QueryBuilder<T extends IQueryFields>
 {

@@ -1,4 +1,4 @@
-import { IQueryFields } from '../../core/builder/query-fields.interface';
+import { IQueryFields } from '@/core/builder/query-fields.interface';
 
 export interface ReviewFields extends IQueryFields {
   StringFields: 'title' | 'type' | 'review' | 'author';

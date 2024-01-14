@@ -1,9 +1,9 @@
-import { ClientRequest } from '../../core/request/client-request';
-import { VERSION } from '../../interfaces/enums/version.enum';
-import { Filter, SearchFilter } from '../../core/builder/query-builder.interface';
-import { PersonFields } from './person-fields.dto';
-import { WrapperDocsResponseDto } from '../../interfaces/response/response.interface';
+import { ClientRequest } from '@/core/request/client-request';
+import { VERSION } from '@/interfaces/enums/version.enum';
+import { Filter, SearchFilter } from '@/core/builder/query-builder.interface';
+import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MeiliPersonEntity, Person, PersonAward } from './person-response.dto';
+import { PersonFields } from './person-fields.dto';
 
 export class PersonService {
   constructor(private readonly request: ClientRequest) {}
