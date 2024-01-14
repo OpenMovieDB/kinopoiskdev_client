@@ -54,8 +54,9 @@ export class ClientRequest {
         message: null,
       };
     } catch (error) {
-        console.log('There was an error with your request:', error);
-        if (error.message) {
+      console.log('There was an error with your request:', error);
+      
+      try {
         const { status, message, error: err } = JSON.parse(error.message);
         return {
           data: null,
@@ -63,13 +64,13 @@ export class ClientRequest {
           error: err,
           message: message,
         };
-      }
-
-      return {
-        data: null,
-        statusCode: 503,
-        error,
-        message: 'Service Unavailable',
+      } catch (exc) {
+        return {
+          data: null,
+          statusCode: 503,
+          error,
+          message: 'Service Unavailable',
+        }
       }
     }
   }
