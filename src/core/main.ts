@@ -8,6 +8,7 @@ import { StudioService } from '../services/studio/studio.service';
 import { ClientRequest } from './request/client-request';
 
 export * from '../services'
+export * from '../interfaces/enums'
 
 export class KinopoiskDev {
   public movie: MovieService;
