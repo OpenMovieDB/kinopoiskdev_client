@@ -1,4 +1,1 @@
-export * from './kinopoiskdev';
-export * from './builder';
-export * from './enums';
-export * from './interfaces';
+export * from './core/main'
