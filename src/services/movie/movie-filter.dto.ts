@@ -49,7 +49,7 @@ type SelectMovieFields =
   | 'createdAt';
 
 
-enum RequestMovieFields  {
+enum RequestMovieFields {
   'id' = 'id',
   'externalIdImdb' = 'externalId.imdb',
   'externalIdTmdb' = 'externalId.tmdb',
@@ -280,14 +280,14 @@ export type MovieAwardsDto = Partial<{
   selectFields: SelectAwardsFields[];
   sortType: SortType;
 
-  [RequestMovieAwardFields.movieId]: WrapperQueryBuilderFieldsType<number, 
-  QueryBuilderFields.$range
+  [RequestMovieAwardFields.movieId]: WrapperQueryBuilderFieldsType<number,
+    QueryBuilderFields.$range
   >;
-  [RequestMovieAwardFields.nominationTitle]: WrapperQueryBuilderFieldsType<string, 
-  QueryBuilderFields.$range
+  [RequestMovieAwardFields.nominationTitle]: WrapperQueryBuilderFieldsType<string,
+    QueryBuilderFields.$range
   >;
-  [RequestMovieAwardFields.nominationAwardTitle]: WrapperQueryBuilderFieldsType<string, 
-  QueryBuilderFields.$range
+  [RequestMovieAwardFields.nominationAwardTitle]: WrapperQueryBuilderFieldsType<string,
+    QueryBuilderFields.$range
   >;
   [RequestMovieAwardFields.nominationAwardYear]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieAwardFields.winning]: boolean;
