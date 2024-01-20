@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectMovieFields =
@@ -194,7 +194,7 @@ export type MovieDto = Partial<{
   [RequestMovieFields.ratingKp]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.ratingImdb]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.ratingTmdb]: WrapperQueryBuilderFieldsType<number>;
-  [RequestMovieFields.ratingMpaa]: WrapperQueryBuilderFieldsType<number>;
+  [RequestMovieFields.ratingMpaa]: WrapperQueryBuilderFieldsType<string>;
   [RequestMovieFields.ageRating]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.votesKp]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.votesTmdb]: WrapperQueryBuilderFieldsType<number>;
@@ -232,11 +232,11 @@ export type MovieDto = Partial<{
   [RequestMovieFields.feesWorld]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.feesUsa]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieFields.feesRussia]: WrapperQueryBuilderFieldsType<number>;
-  [RequestMovieFields.premiereWorld]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieFields.premiereUsa]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieFields.premiereRussia]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieFields.premiereDigital]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieFields.premiereCinema]: WrapperQueryBuilderFieldsType<Date>;
+  [RequestMovieFields.premiereWorld]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieFields.premiereUsa]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieFields.premiereRussia]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieFields.premiereDigital]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieFields.premiereCinema]: WrapperQueryBuilderFieldsTypeDate;
   [RequestMovieFields.premiereCountry]: WrapperQueryBuilderFieldsType<
     string,
     QueryBuilderFields.$range
@@ -249,16 +249,14 @@ export type MovieDto = Partial<{
     number,
     QueryBuilderFields.$range
   >;
-  [RequestMovieFields.watchabilityItemsName]: WrapperQueryBuilderFieldsType<
-    'ivi' | 'okko' | 'megogo',
+  [RequestMovieFields.watchabilityItemsName]: WrapperQueryBuilderFieldsType<string,
     QueryBuilderFields.$range
   >;
-  [RequestMovieFields.lists]: WrapperQueryBuilderFieldsType<
-    'top250' | 'top-100-indian-movies' | 'top-100-movies',
+  [RequestMovieFields.lists]: WrapperQueryBuilderFieldsType<string,
     QueryBuilderFields.$range
   >;
-  [RequestMovieFields.updatedAt]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieFields.createdAt]: WrapperQueryBuilderFieldsType<Date>;
+  [RequestMovieFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
 }>
 
 
@@ -291,6 +289,6 @@ export type MovieAwardsDto = Partial<{
   >;
   [RequestMovieAwardFields.nominationAwardYear]: WrapperQueryBuilderFieldsType<number>;
   [RequestMovieAwardFields.winning]: boolean;
-  [RequestMovieAwardFields.updatedAt]: WrapperQueryBuilderFieldsType<Date>;
-  [RequestMovieAwardFields.createdAt]: WrapperQueryBuilderFieldsType<Date>;
+  [RequestMovieAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestMovieAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
 }>

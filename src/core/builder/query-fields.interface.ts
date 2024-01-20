@@ -9,14 +9,17 @@ export enum QueryBuilderFields {
 
 export type QueryBuilderFieldsType<T> = {
   [QueryBuilderFields.$in]?: T[];
-  [QueryBuilderFields.$ne]?: T[];
   [QueryBuilderFields.$and]?: T[];
   [QueryBuilderFields.$nin]?: T[];
-  [QueryBuilderFields.$eq]?: T;
   [QueryBuilderFields.$range]?: [T, T];
+  [QueryBuilderFields.$eq]?: T;
+  [QueryBuilderFields.$ne]?: T;
 };
 
 export type WrapperQueryBuilderFieldsType<
   T,
   Exclude extends QueryBuilderFields = never,
 > = Omit<QueryBuilderFieldsType<T>, Exclude>;
+
+
+export type WrapperQueryBuilderFieldsTypeDate =  WrapperQueryBuilderFieldsType<Date>

@@ -1,5 +1,6 @@
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { DocsResponse, ErrorResponse, IResponse } from '@/interfaces/response/response.interface';
+import { QueryBuilder } from '../builder/query-builder';
 
 export class ClientRequest {
   constructor(
@@ -7,21 +8,8 @@ export class ClientRequest {
     private readonly API_URL: string,
   ) {}
 
-  private queryParams(params: { [key: string]: any } = {}): string {
-    const urlSearchParams = new URLSearchParams();
+  private queryBuilder: QueryBuilder = new QueryBuilder()
 
-    for (const key in params) {
-      if (Array.isArray(params[key])) {
-        for (const value of params[key]) {
-          urlSearchParams.append(key, value);
-        }
-      } else {
-        urlSearchParams.append(key, params[key]);
-      }
-    }
-
-    return urlSearchParams.toString();
-  }
 
   async get<T, P = any>(
     version: VERSION,
@@ -30,7 +18,7 @@ export class ClientRequest {
   ): Promise<IResponse<DocsResponse<T>>> {
     try {
       const response = await fetch(
-        `${this.API_URL}/${version}${path}?${this.queryParams(params as any)}`,
+        `${this.API_URL}/${version}${path}?${this.queryBuilder.build(params)}`,
         { headers: { 'X-API-KEY': this.API_KEY } },
       );
 

@@ -37,10 +37,10 @@ export class MovieService {
   }
 
   getPossibleValuesByField(
-    field: 'type' | 'countries.name' | 'genres.name' | 'typeNumber' | 'status',
+    filters: { field : 'type' | 'countries.name' | 'genres.name' | 'typeNumber' | 'status'},
   ): Promise<WrapperDocsResponseDto<PossibleValueDto>> {
     return this.request.get<PossibleValueDto>(VERSION.V1, `/movie/possible-values-by-field`, {
-      field,
+      filters,
     });
   }
 }
