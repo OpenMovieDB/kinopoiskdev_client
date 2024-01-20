@@ -7,7 +7,7 @@ export class ClientRequest {
     private readonly API_URL: string,
   ) {}
 
-  private queryParams(params: { [key: string]: any }): string {
+  private queryParams(params: { [key: string]: any } = {}): string {
     const urlSearchParams = new URLSearchParams();
 
     for (const key in params) {
