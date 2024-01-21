@@ -31,13 +31,13 @@ export class QueryBuilder {
       query.append(key, this.fixedEncodeURIComponent(String(val)));
     };
 
-    if (params) {
+    if (!params) {
       return '';
     }
 
     Object.keys(params).forEach(queryField => {
       if (Array.isArray(params[queryField])) {
-        params[queryField].forEach(item => {
+        (params[queryField] as (string | number)[]).forEach(item => {
           appendToQuery(queryField, item);
         });
       } else if (typeof params[queryField] === 'object') {
@@ -97,7 +97,7 @@ export class QueryBuilder {
           }
         });
       } else {
-        appendToQuery(queryField, params[queryField]);
+        appendToQuery(queryField, params[queryField] as string | number);
       }
     });
 
