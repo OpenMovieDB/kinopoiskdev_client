@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectImageFields = 'id' | 'movieId' | 'type' | 'language' | 'url' | 'previewUrl' | 'height' |  'width' | 'updatedAt' | 'createdAt'
@@ -35,4 +35,4 @@ export type ImageDto = Partial<{
   [RequestImageFields.width]: WrapperQueryBuilderFieldsType<number>;
   [RequestImageFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestImageFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectPersonFields = 'id' | 'name' | 'enName ' | 'photo' | 'sex' | 'growth' | 'birthday' | 'death' | 'age' | 'birthPlace' | 'deathPlace' | 'spouses' | 'countAwards' | 'profession' | 'facts' | 'movies' | 'updatedAt' | 'createdAt'
@@ -66,7 +66,7 @@ export type PersonDto = Partial<{
 >;
   [RequestPersonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestPersonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>
 
 
 type SelectAwardsFields = 'personId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
@@ -100,4 +100,4 @@ export type PersonAwardsDto = Partial<{
   [RequestPersonAwardFields.winning]: boolean;
   [RequestPersonAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestPersonAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectMovieFields =
@@ -257,7 +257,7 @@ export type MovieDto = Partial<{
   >;
   [RequestMovieFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestMovieFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>
 
 
 type SelectAwardsFields = 'movieId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
@@ -291,4 +291,4 @@ export type MovieAwardsDto = Partial<{
   [RequestMovieAwardFields.winning]: boolean;
   [RequestMovieAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestMovieAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

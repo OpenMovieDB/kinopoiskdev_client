@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectReviewFields = 'id' | 'movieId' | 'title' | 'type' | 'review' | 'date' | 'author' | 'authorId' | 'updatedAt' | 'createdAt'
@@ -40,4 +40,4 @@ export type ReviewDto = Partial<{
   [RequestReviewFields.date]: WrapperQueryBuilderFieldsTypeDate
   [RequestReviewFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestReviewFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

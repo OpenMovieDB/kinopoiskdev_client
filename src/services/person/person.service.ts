@@ -3,6 +3,7 @@ import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MeiliPersonEntity, Person, PersonAward } from './person-response.dto';
 import { PersonAwardsDto, PersonDto } from './person-filter.dto';
+import { QueryBuilderFieldsPageLimit } from '@/core/builder/query-fields.interface';
 
 export class PersonService {
   constructor(private readonly request: ClientRequest) {}
@@ -20,7 +21,7 @@ export class PersonService {
   async getBySearchQuery(
     filters: Partial<{
       query: string;
-    }>,
+    } & QueryBuilderFieldsPageLimit>,
   ): Promise<WrapperDocsResponseDto<MeiliPersonEntity>> {
     return await this.request.get<MeiliPersonEntity, typeof filters>(VERSION.V1_4, `/person/search`, filters);
   }

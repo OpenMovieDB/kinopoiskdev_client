@@ -22,4 +22,9 @@ export type WrapperQueryBuilderFieldsType<
 > = Omit<QueryBuilderFieldsType<T>, Exclude>;
 
 
+export type QueryBuilderFieldsPageLimit = {
+  page: number;
+  limit: number;
+}
+
 export type WrapperQueryBuilderFieldsTypeDate =  WrapperQueryBuilderFieldsType<Date>

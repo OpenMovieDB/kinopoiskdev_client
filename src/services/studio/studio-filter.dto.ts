@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectStudioFields = 'id' | 'subType' | 'title' | 'type' | 'movies' | 'updatedAt' | 'createdAt'
@@ -36,4 +36,4 @@ export type StudioDto = Partial<{
   >;
   [RequestStudioFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestStudioFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

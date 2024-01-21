@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
 type SelectKeywordFields = 'id' | 'movies' | 'title' | 'updatedAt' | 'createdAt'
@@ -28,4 +28,4 @@ export type KeywordDto = Partial<{
   >;
   [RequestKeywordFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestKeywordFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>

@@ -3,6 +3,7 @@ import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MovieAwardsDto, MovieDto } from './movie-filter.dto';
 import { MeiliMovieEntity, MovieDtoV14, PartialTypeClass, PossibleValueDto } from './movie-response.dto';
+import { QueryBuilderFieldsPageLimit } from '@/core/builder/query-fields.interface';
 export class MovieService {
   constructor(private readonly request: ClientRequest) {}
 
@@ -23,7 +24,7 @@ export class MovieService {
   async getBySearchQuery(
     filters: Partial<{
       query: string;
-    }>,
+    } & QueryBuilderFieldsPageLimit>,
   ): Promise<WrapperDocsResponseDto<MeiliMovieEntity>> {
     return await this.request.get<MeiliMovieEntity, typeof filters>(VERSION.V1_4, `/movie/search`, filters);
   }

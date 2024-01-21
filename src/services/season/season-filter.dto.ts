@@ -1,4 +1,4 @@
-import { QueryBuilderFields, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from "@/core/builder/query-fields.interface";
+import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from "@/core/builder/query-fields.interface";
 import { SortType } from "@/interfaces/enums";
 
 type SelectSeasonFields = 'movieId' | 'poster' | 'number' | 'name' | 'enName' | 'duration' | 'description' | 'enDescription' | 'episodesCount' | 'airDate' | 'updatedAt' | 'createdAt'
@@ -39,4 +39,4 @@ export type SeasonDto = Partial<{
   [RequestSeasonFields.episodesAirDate]: WrapperQueryBuilderFieldsTypeDate;
   [RequestSeasonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestSeasonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+} & QueryBuilderFieldsPageLimit>
