@@ -31,7 +31,7 @@ type RequestReviewFields =
   | 'createdAt';
 
 export type ReviewDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: keyof RequestReviewFields;
+  notNullFields: RequestReviewFields[];
   sortField: RequestReviewFields[];
   selectFields: SelectReviewFields[];
   sortType: SortType;
