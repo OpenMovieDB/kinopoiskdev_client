@@ -50,13 +50,7 @@ export class QueryBuilder
                   appendToQuery(queryField, `!${item}`)
                 })
               } else if (QueryBuilderFields.$range === queryBuilderField) {
-                if (!currentQueryBuilderField?.[0] || !(typeof currentQueryBuilderField?.[0] === 'number')) {
-                  this.throwError(`${queryField}: ${queryBuilderField}[0] must be an number, given ${typeof currentQueryBuilderField?.[0]}`)
-                } else if (!currentQueryBuilderField?.[1] || !(typeof currentQueryBuilderField?.[1] === 'number')) {
-                  this.throwError(`${queryField}: ${queryBuilderField}[1] must be an number, given ${typeof currentQueryBuilderField?.[1]}`)
-                } else {
-                  appendToQuery(queryField, `${currentQueryBuilderField[0]}-${currentQueryBuilderField[1]}`)
-                }
+                appendToQuery(queryField, currentQueryBuilderField.map((date: Date) => date.toISOString().split('T')[0]).join('-'))
               }
             } else {
               this.throwError(`${queryField}: ${queryBuilderField} must be an Array, given ${typeof currentQueryBuilderField}`)
