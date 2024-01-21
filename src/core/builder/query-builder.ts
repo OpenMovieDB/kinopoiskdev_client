@@ -14,6 +14,16 @@ export class QueryBuilder {
     throw new Error(str);
   }
 
+  private isDate(val: any) {
+    return val instanceof Date
+  }
+
+  private isNumeric(str: any) {
+    if (typeof str !== "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+  }
+
   build(
     params:
       | {
@@ -82,12 +92,25 @@ export class QueryBuilder {
                   appendToQuery(queryField, `${suffix}${item}`);
                 });
               } else if (QueryBuilderFields.$range === queryBuilderField) {
-                appendToQuery(
-                  queryField,
-                  currentQueryBuilderField
-                    .map((date: Date) => date.toISOString().split('T')[0])
-                    .join('-'),
-                );
+                if(this.isDate(currentQueryBuilderField?.[0]) && this.isDate(currentQueryBuilderField?.[1])) {
+                  appendToQuery(
+                    queryField,
+                    currentQueryBuilderField
+                      .map((date: Date) => date.toISOString().split('T')[0])
+                      .join('-'),
+                  );
+                } else if (this.isNumeric(currentQueryBuilderField?.[0]) && this.isNumeric(currentQueryBuilderField?.[1])) {
+                  appendToQuery(
+                    queryField,
+                    currentQueryBuilderField
+                      .map((date: number) => String(date))
+                      .join('-'),
+                  );
+                } else {
+                  this.throwError(
+                    `${queryField}: ${queryBuilderField} must be an Date or Number, given [${currentQueryBuilderField?.[0]}, ${currentQueryBuilderField?.[0]}]`,
+                  );
+                }
               }
             } else {
               this.throwError(
