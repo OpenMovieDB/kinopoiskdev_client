@@ -1,4 +1,3 @@
-
 export { KinopoiskDev } from './core/main'
 
 export * from './services'

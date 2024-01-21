@@ -6,6 +6,7 @@ import { KeywordService } from '@/services/keyword/keyword.service';
 import { ImageService } from '@/services/image/image.service';
 import { StudioService } from '@/services/studio/studio.service';
 import { ClientRequest } from './request/client-request';
+import { ListService } from '@/services/lists/list.service';
 
 export class KinopoiskDev {
   public movie: MovieService;
@@ -15,6 +16,7 @@ export class KinopoiskDev {
   public keyword: KeywordService;
   public studio: StudioService;
   public image: ImageService;
+  public list: ListService;
   public request: ClientRequest;
 
   constructor(
@@ -29,5 +31,6 @@ export class KinopoiskDev {
     this.studio = new StudioService(this.request);
     this.image = new ImageService(this.request);
     this.review = new ReviewService(this.request);
+    this.list = new ListService(this.request);
   }
 }

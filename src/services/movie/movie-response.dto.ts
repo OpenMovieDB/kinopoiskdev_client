@@ -1,3 +1,4 @@
+import { ShortImage } from "@/interfaces/response/response.interface";
 import { Nomination } from "@/services/person/person-response.dto";
 
 /**
@@ -261,27 +262,6 @@ export interface ReviewInfo {
    */
   percentage?: string;
 }
-
-/**
- *
- * @export
- * @interface ShortImage
- */
-export interface ShortImage {
-  /**
-   * Чтобы найти фильмы с этим полем, используйте: `!null`
-   * @type {string}
-   * @memberof ShortImage
-   */
-  url?: string;
-  /**
-   * Чтобы найти фильмы с этим полем, используйте: `!null`
-   * @type {string}
-   * @memberof ShortImage
-   */
-  previewUrl?: string;
-}
-
 /**
  *
  * @export

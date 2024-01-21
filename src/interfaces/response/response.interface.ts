@@ -125,3 +125,24 @@ export interface InlineResponse {
    */
   details?: { [key: string]: InlineResponseInfo };
 }
+
+
+/**
+ *
+ * @export
+ * @interface ShortImage
+ */
+export interface ShortImage {
+  /**
+   * Чтобы найти фильмы с этим полем, используйте: `!null`
+   * @type {string}
+   * @memberof ShortImage
+   */
+  url?: string;
+  /**
+   * Чтобы найти фильмы с этим полем, используйте: `!null`
+   * @type {string}
+   * @memberof ShortImage
+   */
+  previewUrl?: string;
+}
