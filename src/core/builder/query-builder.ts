@@ -30,6 +30,7 @@ export class QueryBuilder {
             | QueryBuilderFieldsType<string | number | boolean | Date>
             | string
             | number
+            | boolean
             | (string | number)[];
         }
       | undefined = {},
@@ -125,7 +126,7 @@ export class QueryBuilder {
           }
         });
       } else {
-        appendToQuery(queryField, params[queryField] as string | number);
+        appendToQuery(queryField, params[queryField] as string | number | boolean);
       }
     });
 
