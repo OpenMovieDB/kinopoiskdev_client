@@ -1,51 +1,19 @@
-// import { beforeEach, describe, expect, it } from 'vitest'
-// import { SortType } from '@/interfaces/enums/sort-type.enum';
-// import { MovieQueryBuilder, QueryBuilder } from './query-builder';
+import { expect, test } from 'vitest';
+import { QueryBuilder } from './query-builder';
 
-// describe('QueryBuilder', () => {
-//   let queryBuilder: QueryBuilder<any>;
+const queryBuilder: QueryBuilder = new QueryBuilder();
 
-//   beforeEach(() => {
-//     queryBuilder = new MovieQueryBuilder();
-//   });
+test('Should select fields for number all', () => {
+  const query = queryBuilder.build({
+    'externalId.imdb': {
+      $in: [200, 300, 400],
+      $and: [501, 601, 701],
+      $eq: 2000,
+      $ne: 1001,
+      $nin: [3001, 4001, 5001],
+      $range: [new Date('2020-01-01'), new Date('2020-01-01')],
+    },
+  });
 
-//   it('should select fields correctly', () => {
-//     queryBuilder.select(['field1', 'field2']);
-//     const query = queryBuilder.build();
-//     expect(query.selectFields).toEqual(['field1', 'field2']);
-//   });
-
-//   it('should sort fields correctly', () => {
-//     queryBuilder.sort('field1', SortType.ASC);
-//     const query = queryBuilder.build();
-//     expect(query.sortField).toEqual(['field1']);
-//     expect(query.sortType).toEqual([SortType.ASC]);
-//   });
-
-//   it('should filter fields correctly', () => {
-//     queryBuilder.filterExact('field1', 'test_value');
-//     const query = queryBuilder.build();
-//     expect(query['field1']).toEqual(['test_value']);
-//   });
-
-//   it('should handle range filter correctly', () => {
-//     queryBuilder.filterRange('field1', [1, 10]);
-//     const query = queryBuilder.build();
-//     expect(query['field1']).toEqual('1-10');
-//   });
-
-//   it('should handle date range filter correctly', () => {
-//     const date1 = new Date('2020-01-01');
-//     const date2 = new Date('2021-01-01');
-//     queryBuilder.filterDateRange('field1', [date1, date2]);
-//     const query = queryBuilder.build();
-//     expect(query['field1']).toEqual('2020-01-01-2021-01-01');
-//   });
-
-//   it('should paginate correctly', () => {
-//     queryBuilder.paginate(1, 10);
-//     const query = queryBuilder.build();
-//     expect(query.page).toEqual(1);
-//     expect(query.limit).toEqual(10);
-//   });
-// });
+  expect(query).toBe('');
+});
