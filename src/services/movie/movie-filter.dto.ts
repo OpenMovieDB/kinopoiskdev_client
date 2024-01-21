@@ -152,7 +152,7 @@ enum RequestMovieFields {
   'createdAt' = 'createdAt',
 }
 
-export type MovieDto = Partial<{
+export type MovieDto =QueryBuilderFieldsPageLimit<{
   notNullFields: RequestMovieFields[]
   sortField: RequestMovieFields[]
   selectFields: SelectMovieFields[];
@@ -257,7 +257,7 @@ export type MovieDto = Partial<{
   >;
   [RequestMovieFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestMovieFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>
 
 
 type SelectAwardsFields = 'movieId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
@@ -272,7 +272,7 @@ enum RequestMovieAwardFields {
   'createdAt' = 'createdAt'
 }
 
-export type MovieAwardsDto = Partial<{
+export type MovieAwardsDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestMovieAwardFields[]
   sortField: RequestMovieAwardFields[]
   selectFields: SelectAwardsFields[];
@@ -291,4 +291,4 @@ export type MovieAwardsDto = Partial<{
   [RequestMovieAwardFields.winning]: boolean;
   [RequestMovieAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestMovieAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

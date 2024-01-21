@@ -24,7 +24,7 @@ enum RequestSeasonFields {
   'createdAt' = 'createdAt'
 }
 
-export type SeasonDto = Partial<{
+export type SeasonDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestSeasonFields[]
   sortField: RequestSeasonFields[]
   selectFields: SelectSeasonFields[];
@@ -39,4 +39,4 @@ export type SeasonDto = Partial<{
   [RequestSeasonFields.episodesAirDate]: WrapperQueryBuilderFieldsTypeDate;
   [RequestSeasonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestSeasonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

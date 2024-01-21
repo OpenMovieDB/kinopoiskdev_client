@@ -13,7 +13,7 @@ enum RequestStudioFields {
   'createdAt' = 'createdAt'
 }
 
-export type StudioDto = Partial<{
+export type StudioDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestStudioFields[]
   sortField: RequestStudioFields[]
   selectFields: SelectStudioFields[];
@@ -36,4 +36,4 @@ export type StudioDto = Partial<{
   >;
   [RequestStudioFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestStudioFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

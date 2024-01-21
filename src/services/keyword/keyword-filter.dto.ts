@@ -11,7 +11,7 @@ enum RequestKeywordFields {
   'createdAt' = 'createdAt'
 }
 
-export type KeywordDto = Partial<{
+export type KeywordDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestKeywordFields[]
   sortField: RequestKeywordFields[]
   selectFields: SelectKeywordFields[];
@@ -28,4 +28,4 @@ export type KeywordDto = Partial<{
   >;
   [RequestKeywordFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestKeywordFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

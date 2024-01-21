@@ -36,7 +36,7 @@ enum RequestPersonFields {
   'createdAt' = 'createdAt',
 }
 
-export type PersonDto = Partial<{
+export type PersonDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestPersonFields[]
   sortField: RequestPersonFields[]
   selectFields: SelectPersonFields[];
@@ -66,7 +66,7 @@ export type PersonDto = Partial<{
 >;
   [RequestPersonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestPersonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>
 
 
 type SelectAwardsFields = 'personId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
@@ -81,7 +81,7 @@ enum RequestPersonAwardFields {
   'createdAt' = 'createdAt'
 }
 
-export type PersonAwardsDto = Partial<{
+export type PersonAwardsDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestPersonAwardFields[]
   sortField: RequestPersonAwardFields[]
   selectFields: SelectAwardsFields[];
@@ -100,4 +100,4 @@ export type PersonAwardsDto = Partial<{
   [RequestPersonAwardFields.winning]: boolean;
   [RequestPersonAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestPersonAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

@@ -22,9 +22,9 @@ export class MovieService {
   }
 
   async getBySearchQuery(
-    filters: Partial<{
+    filters: QueryBuilderFieldsPageLimit<{
       query: string;
-    } & QueryBuilderFieldsPageLimit>,
+    }>,
   ): Promise<WrapperDocsResponseDto<MeiliMovieEntity>> {
     return await this.request.get<MeiliMovieEntity, typeof filters>(VERSION.V1_4, `/movie/search`, filters);
   }

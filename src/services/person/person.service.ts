@@ -19,9 +19,9 @@ export class PersonService {
   }
 
   async getBySearchQuery(
-    filters: Partial<{
+    filters: QueryBuilderFieldsPageLimit<{
       query: string;
-    } & QueryBuilderFieldsPageLimit>,
+    }>,
   ): Promise<WrapperDocsResponseDto<MeiliPersonEntity>> {
     return await this.request.get<MeiliPersonEntity, typeof filters>(VERSION.V1_4, `/person/search`, filters);
   }

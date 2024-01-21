@@ -16,7 +16,7 @@ enum RequestImageFields {
   'createdAt' = 'createdAt'
 }
 
-export type ImageDto = Partial<{
+export type ImageDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestImageFields[]
   sortField: RequestImageFields[]
   selectFields: SelectImageFields[];
@@ -35,4 +35,4 @@ export type ImageDto = Partial<{
   [RequestImageFields.width]: WrapperQueryBuilderFieldsType<number>;
   [RequestImageFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestImageFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>

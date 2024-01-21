@@ -16,7 +16,7 @@ enum RequestReviewFields {
   'createdAt' = 'createdAt'
 }
 
-export type ReviewDto = Partial<{
+export type ReviewDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestReviewFields[]
   sortField: RequestReviewFields[]
   selectFields: SelectReviewFields[];
@@ -40,4 +40,4 @@ export type ReviewDto = Partial<{
   [RequestReviewFields.date]: WrapperQueryBuilderFieldsTypeDate
   [RequestReviewFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestReviewFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-} & QueryBuilderFieldsPageLimit>
+}>
