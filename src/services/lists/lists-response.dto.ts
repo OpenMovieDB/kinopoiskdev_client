@@ -3,49 +3,49 @@ import { ShortImage } from "@/interfaces/response/response.interface";
 /**
  *
  * @export
- * @interface List
+ * @interface Lists
  */
-export interface List {
+export interface Lists {
     /**
      *
      * @type {string}
-     * @memberof List
+     * @memberof Lists
      */
     category: string;
     /**
      *
      * @type {string}
-     * @memberof List
+     * @memberof Lists
      */
     slug: string;
     /**
      *
      * @type {number}
-     * @memberof List
+     * @memberof Lists
      */
     moviesCount: number;
     /**
      *
      * @type {ShortImage}
-     * @memberof List
+     * @memberof Lists
      */
     cover: ShortImage;
     /**
      *
      * @type {string}
-     * @memberof List
+     * @memberof Lists
      */
     name: string;
     /**
      *
      * @type {Date}
-     * @memberof List
+     * @memberof Lists
      */
     updatedAt: Date;
     /**
      *
      * @type {Date}
-     * @memberof List
+     * @memberof Lists
      */
     createdAt: Date;
 }

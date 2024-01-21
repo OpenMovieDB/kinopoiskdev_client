@@ -1,9 +1,9 @@
 import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
-type SelectListFields = 'name' | 'category' | 'slug' | 'moviesCount' | 'cover' | 'updatedAt' | 'createdAt'
+type SelectListsFields = 'name' | 'category' | 'slug' | 'moviesCount' | 'cover' | 'updatedAt' | 'createdAt'
 
-enum RequestListFields {
+enum RequestListsFields {
   'name' = 'name',
   'category' = 'category',
   'slug' = 'slug',
@@ -14,19 +14,19 @@ enum RequestListFields {
   'createdAt' = 'createdAt'
 }
 
-export type ListDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestListFields[]
-  sortField: RequestListFields[]
-  selectFields: SelectListFields[];
+export type ListsDto = QueryBuilderFieldsPageLimit<{
+  notNullFields: RequestListsFields[]
+  sortField: RequestListsFields[]
+  selectFields: SelectListsFields[];
   sortType: SortType;
 
-  [RequestListFields.slug]: WrapperQueryBuilderFieldsType<string,
+  [RequestListsFields.slug]: WrapperQueryBuilderFieldsType<string,
     QueryBuilderFields.$range
   >;
-  [RequestListFields.category]: WrapperQueryBuilderFieldsType<'Онлайн-кинотеатр' | 'Премии' | 'Сборы' | 'Сериалы' | 'Фильмы',
+  [RequestListsFields.category]: WrapperQueryBuilderFieldsType<'Онлайн-кинотеатр' | 'Премии' | 'Сборы' | 'Сериалы' | 'Фильмы',
     QueryBuilderFields.$range
   >;
-  [RequestListFields.moviesCount]: WrapperQueryBuilderFieldsType<number>;
-  [RequestListFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestListFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestListsFields.moviesCount]: WrapperQueryBuilderFieldsType<number>;
+  [RequestListsFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestListsFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
 }>
