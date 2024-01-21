@@ -3,7 +3,7 @@ import { VERSION } from '@/interfaces/enums/version.enum';
 import { Filter, SearchFilter } from '@/core/builder/query-builder.interface';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MeiliPersonEntity, Person, PersonAward } from './person-response.dto';
-import { PersonFields } from './person-fields.dto';
+import { PersonFields } from './person-filter.dto';
 
 export class PersonService {
   constructor(private readonly request: ClientRequest) {}
