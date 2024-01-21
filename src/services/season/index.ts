@@ -1,2 +1,2 @@
-export * from './season-fields.dto';
+export * from './season-filter.dto';
 export * from './season-response.dto';
