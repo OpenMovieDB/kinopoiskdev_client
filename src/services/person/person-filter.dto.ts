@@ -36,7 +36,7 @@ enum RequestPersonFields {
   'createdAt' = 'createdAt',
 }
 
-export type MovieAwardsDto = Partial<{
+export type PersonDto = Partial<{
   notNullFields: RequestPersonFields[]
   sortField: RequestPersonFields[]
   selectFields: SelectPersonFields[];
@@ -66,4 +66,38 @@ export type MovieAwardsDto = Partial<{
 >;
   [RequestPersonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
   [RequestPersonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
+}>
+
+
+type SelectAwardsFields = 'personId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
+
+enum RequestPersonAwardFields {
+  'personId' = 'personId',
+  'winning' = 'winning',
+  'nominationAwardTitle' = 'nomination.award.title',
+  'nominationAwardYear' = 'nomination.award.year',
+  'nominationTitle' = 'nomination.title',
+  'updatedAt' = 'updatedAt',
+  'createdAt' = 'createdAt'
+}
+
+export type PersonAwardsDto = Partial<{
+  notNullFields: RequestPersonAwardFields[]
+  sortField: RequestPersonAwardFields[]
+  selectFields: SelectAwardsFields[];
+  sortType: SortType;
+
+  [RequestPersonAwardFields.personId]: WrapperQueryBuilderFieldsType<number,
+    QueryBuilderFields.$range
+  >;
+  [RequestPersonAwardFields.nominationTitle]: WrapperQueryBuilderFieldsType<string,
+    QueryBuilderFields.$range
+  >;
+  [RequestPersonAwardFields.nominationAwardTitle]: WrapperQueryBuilderFieldsType<string,
+    QueryBuilderFields.$range
+  >;
+  [RequestPersonAwardFields.nominationAwardYear]: WrapperQueryBuilderFieldsType<number>;
+  [RequestPersonAwardFields.winning]: boolean;
+  [RequestPersonAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
+  [RequestPersonAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
 }>

@@ -22,8 +22,6 @@ export class MovieService {
 
   async getBySearchQuery(
     filters: Partial<{
-      page: number;
-      limit: number;
       query: string;
     }>,
   ): Promise<WrapperDocsResponseDto<MeiliMovieEntity>> {
