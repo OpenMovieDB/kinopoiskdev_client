@@ -1,103 +1,128 @@
-import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import {
+  QueryBuilderFields,
+  QueryBuilderFieldsPageLimit,
+  WrapperQueryBuilderFieldsType,
+  WrapperQueryBuilderFieldsTypeDate,
+} from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
-type SelectPersonFields = 'id' | 'name' | 'enName ' | 'photo' | 'sex' | 'growth' | 'birthday' | 'death' | 'age' | 'birthPlace' | 'deathPlace' | 'spouses' | 'countAwards' | 'profession' | 'facts' | 'movies' | 'updatedAt' | 'createdAt'
+type SelectPersonFields =
+  | 'id'
+  | 'name'
+  | 'enName '
+  | 'photo'
+  | 'sex'
+  | 'growth'
+  | 'birthday'
+  | 'death'
+  | 'age'
+  | 'birthPlace'
+  | 'deathPlace'
+  | 'spouses'
+  | 'countAwards'
+  | 'profession'
+  | 'facts'
+  | 'movies'
+  | 'updatedAt'
+  | 'createdAt';
 
-enum RequestPersonFields {
-  'id' = 'id',
-  'name' = 'name',
-  'enName' = 'enName',
-  'photo' = 'photo',
-  'sex' = 'sex',
-  'growth' = 'growth',
-  'birthday' = 'birthday',
-  'death' = 'death',
-  'age' = 'age',
-  'birthPlaceValue' = 'birthPlace.value',
-  'deathPlaceValue' = 'deathPlace.value',
-  'spousesId' = 'spouses.id',
-  'spouses.name' = 'spouses.name',
-  'spousesDivorced' = 'spouses.divorced',
-  'spouses.divorcedReason' = 'spouses.divorcedReason',
-  'spousesSex' = 'spouses.sex',
-  'spouses.children' = 'spouses.children',
-  'spouses.relation' = 'spouses.relation',
-  'countAwards' = 'countAwards',
-  'professionValue' = 'profession.value',
-  'facts.value' = 'facts.value',
-  'moviesId' = 'movies.id',
-  'movies.name' = 'movies.name',
-  'movies.alternativeName' = 'movies.alternativeName',
-  'moviesRating' = 'movies.rating',
-  'movies.general' = 'movies.general',
-  'movies.description' = 'movies.description',
-  'moviesEnProfession' = 'movies.enProfession',
-  'updatedAt' = 'updatedAt',
-  'createdAt' = 'createdAt',
-}
+type RequestPersonFields =
+  | 'id'
+  | 'name'
+  | 'enName'
+  | 'photo'
+  | 'sex'
+  | 'growth'
+  | 'birthday'
+  | 'death'
+  | 'age'
+  | 'birthPlace.value'
+  | 'deathPlace.value'
+  | 'spouses.id'
+  | 'spouses.name'
+  | 'spouses.divorced'
+  | 'spouses.divorcedReason'
+  | 'spouses.sex'
+  | 'spouses.children'
+  | 'spouses.relation'
+  | 'countAwards'
+  | 'profession.value'
+  | 'facts.value'
+  | 'movies.id'
+  | 'movies.name'
+  | 'movies.alternativeName'
+  | 'movies.rating'
+  | 'movies.general'
+  | 'movies.description'
+  | 'movies.enProfession'
+  | 'updatedAt'
+  | 'createdAt';
 
 export type PersonDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestPersonFields[]
-  sortField: RequestPersonFields[]
+  notNullFields: RequestPersonFields[];
+  sortField: RequestPersonFields[];
   selectFields: SelectPersonFields[];
   sortType: SortType;
 
-  [RequestPersonFields.id]: WrapperQueryBuilderFieldsType<number,
+  id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  'movies.id': WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  sex: WrapperQueryBuilderFieldsType<
+    'Женский' | 'Мужской',
     QueryBuilderFields.$range
   >;
-  [RequestPersonFields.moviesId]: WrapperQueryBuilderFieldsType<number,
+  growth: WrapperQueryBuilderFieldsType<number>;
+  birthday: WrapperQueryBuilderFieldsTypeDate;
+  death: WrapperQueryBuilderFieldsTypeDate;
+  age: WrapperQueryBuilderFieldsType<number>;
+  'birthPlace.value': WrapperQueryBuilderFieldsType<
+    string,
     QueryBuilderFields.$range
   >;
-  [RequestPersonFields.sex]: WrapperQueryBuilderFieldsType<'Женский' | 'Мужской',
+  'deathPlace.value': WrapperQueryBuilderFieldsType<
+    string,
     QueryBuilderFields.$range
   >;
-  [RequestPersonFields.growth]: WrapperQueryBuilderFieldsType<number>;
-  [RequestPersonFields.birthday]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestPersonFields.death]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestPersonFields.age]: WrapperQueryBuilderFieldsType<number>;
-  [RequestPersonFields.birthPlaceValue]: WrapperQueryBuilderFieldsType<string,
-  QueryBuilderFields.$range
->;
-  [RequestPersonFields.deathPlaceValue]: WrapperQueryBuilderFieldsType<string,
-  QueryBuilderFields.$range
->
-  [RequestPersonFields.spousesId]: WrapperQueryBuilderFieldsType<number,
-  QueryBuilderFields.$range
->;
-  [RequestPersonFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestPersonFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+  'spouses.id': WrapperQueryBuilderFieldsType<
+    number,
+    QueryBuilderFields.$range
+  >;
+  createdAt: WrapperQueryBuilderFieldsTypeDate;
+  updatedAt: WrapperQueryBuilderFieldsTypeDate;
+}>;
 
+type SelectAwardsFields =
+  | 'personId'
+  | 'winning'
+  | 'nomination'
+  | 'updatedAt'
+  | 'createdAt';
 
-type SelectAwardsFields = 'personId' | 'winning' | 'nomination' | 'updatedAt' | 'createdAt'
-
-enum RequestPersonAwardFields {
-  'personId' = 'personId',
-  'winning' = 'winning',
-  'nominationAwardTitle' = 'nomination.award.title',
-  'nominationAwardYear' = 'nomination.award.year',
-  'nominationTitle' = 'nomination.title',
-  'updatedAt' = 'updatedAt',
-  'createdAt' = 'createdAt'
-}
+type RequestPersonAwardFields =
+  | 'personId'
+  | 'winning'
+  | 'nomination.award.title'
+  | 'nomination.award.year'
+  | 'nomination.title'
+  | 'updatedAt'
+  | 'createdAt';
 
 export type PersonAwardsDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestPersonAwardFields[]
-  sortField: RequestPersonAwardFields[]
+  notNullFields: RequestPersonAwardFields[];
+  sortField: RequestPersonAwardFields[];
   selectFields: SelectAwardsFields[];
   sortType: SortType;
 
-  [RequestPersonAwardFields.personId]: WrapperQueryBuilderFieldsType<number,
+  winning: boolean;
+  personId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  'nomination.title': WrapperQueryBuilderFieldsType<
+    string,
     QueryBuilderFields.$range
   >;
-  [RequestPersonAwardFields.nominationTitle]: WrapperQueryBuilderFieldsType<string,
+  'nomination.award.title': WrapperQueryBuilderFieldsType<
+    string,
     QueryBuilderFields.$range
   >;
-  [RequestPersonAwardFields.nominationAwardTitle]: WrapperQueryBuilderFieldsType<string,
-    QueryBuilderFields.$range
-  >;
-  [RequestPersonAwardFields.nominationAwardYear]: WrapperQueryBuilderFieldsType<number>;
-  [RequestPersonAwardFields.winning]: boolean;
-  [RequestPersonAwardFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestPersonAwardFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+  'nomination.award.year': WrapperQueryBuilderFieldsType<number>;
+  createdAt: WrapperQueryBuilderFieldsTypeDate;
+  updatedAt: WrapperQueryBuilderFieldsTypeDate;
+}>;

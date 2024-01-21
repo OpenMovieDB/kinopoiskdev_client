@@ -1,31 +1,34 @@
-import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import {
+  QueryBuilderFields,
+  QueryBuilderFieldsPageLimit,
+  WrapperQueryBuilderFieldsType,
+  WrapperQueryBuilderFieldsTypeDate,
+} from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
-type SelectKeywordFields = 'id' | 'movies' | 'title' | 'updatedAt' | 'createdAt'
+type SelectKeywordFields =
+  | 'id'
+  | 'movies'
+  | 'title'
+  | 'updatedAt'
+  | 'createdAt';
 
-enum RequestKeywordFields {
-  'id' = 'id',
-  'moviesId' = 'moviesId',
-  'title' = 'title',
-  'updatedAt' = 'updatedAt',
-  'createdAt' = 'createdAt'
-}
+type RequestKeywordFields =
+  | 'id'
+  | 'moviesId'
+  | 'title'
+  | 'updatedAt'
+  | 'createdAt';
 
 export type KeywordDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestKeywordFields[]
-  sortField: RequestKeywordFields[]
+  notNullFields: RequestKeywordFields[];
+  sortField: RequestKeywordFields[];
   selectFields: SelectKeywordFields[];
   sortType: SortType;
 
-  [RequestKeywordFields.id]: WrapperQueryBuilderFieldsType<number,
-    QueryBuilderFields.$range
-  >;
-  [RequestKeywordFields.moviesId]: WrapperQueryBuilderFieldsType<number,
-    QueryBuilderFields.$range
-  >;
-  [RequestKeywordFields.title]: WrapperQueryBuilderFieldsType<string,
-    QueryBuilderFields.$range
-  >;
-  [RequestKeywordFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestKeywordFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+  id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  moviesId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  title: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
+  updatedAt: WrapperQueryBuilderFieldsTypeDate;
+  createdAt: WrapperQueryBuilderFieldsTypeDate;
+}>;

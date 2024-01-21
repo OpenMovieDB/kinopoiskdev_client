@@ -1,38 +1,76 @@
-import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import {
+  QueryBuilderFields,
+  QueryBuilderFieldsPageLimit,
+  WrapperQueryBuilderFieldsType,
+  WrapperQueryBuilderFieldsTypeDate,
+} from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
-type SelectImageFields = 'id' | 'movieId' | 'type' | 'language' | 'url' | 'previewUrl' | 'height' |  'width' | 'updatedAt' | 'createdAt'
+type SelectImageFields =
+  | 'id'
+  | 'movieId'
+  | 'type'
+  | 'language'
+  | 'url'
+  | 'previewUrl'
+  | 'height'
+  | 'width'
+  | 'updatedAt'
+  | 'createdAt';
 
-enum RequestImageFields {
-  'id' = 'id',
-  'movieId' = 'movieId',
-  'language' = 'language',
-  'type' = 'type',
-  'url' = 'url',
-  'previewUrl' = 'previewUrl',
-  'height' = 'height',
-  'width' = 'width',
-  'updatedAt' = 'updatedAt',
-  'createdAt' = 'createdAt'
-}
+type RequestImageFields =
+  | 'id'
+  | 'movieId'
+  | 'language'
+  | 'type'
+  | 'url'
+  | 'previewUrl'
+  | 'height'
+  | 'width'
+  | 'updatedAt'
+  | 'createdAt';
 
 export type ImageDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestImageFields[]
-  sortField: RequestImageFields[]
+  notNullFields: RequestImageFields[];
+  sortField: RequestImageFields[];
   selectFields: SelectImageFields[];
   sortType: SortType;
 
-  [RequestImageFields.id]: WrapperQueryBuilderFieldsType<number,
+  id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  type: WrapperQueryBuilderFieldsType<
+    | 'backdrops'
+    | 'cover'
+    | 'frame'
+    | 'promo'
+    | 'screenshot'
+    | 'shooting'
+    | 'still'
+    | 'wallpaper',
     QueryBuilderFields.$range
   >;
-  [RequestImageFields.type]: WrapperQueryBuilderFieldsType<'backdrops' | 'cover' | 'frame' | 'promo' | 'screenshot' | 'shooting' | 'still' | 'wallpaper',
+  language: WrapperQueryBuilderFieldsType<
+    | 'ab'
+    | 'af'
+    | 'am'
+    | 'ar'
+    | 'as'
+    | 'av'
+    | 'ba'
+    | 'be'
+    | 'bg'
+    | 'bn'
+    | 'ca'
+    | 'ce'
+    | 'cn'
+    | 'cs'
+    | 'cu'
+    | 'cv'
+    | 'da'
+    | 'de',
     QueryBuilderFields.$range
   >;
-  [RequestImageFields.language]: WrapperQueryBuilderFieldsType<'ab' | 'af' | 'am' | 'ar' | 'as' | 'av' | 'ba' | 'be' | 'bg' | 'bn' | 'ca' | 'ce' | 'cn' | 'cs' | 'cu' | 'cv' | 'da' | 'de',
-    QueryBuilderFields.$range
-  >;
-  [RequestImageFields.height]: WrapperQueryBuilderFieldsType<number>;
-  [RequestImageFields.width]: WrapperQueryBuilderFieldsType<number>;
-  [RequestImageFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestImageFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+  height: WrapperQueryBuilderFieldsType<number>;
+  width: WrapperQueryBuilderFieldsType<number>;
+  updatedAt: WrapperQueryBuilderFieldsTypeDate;
+  createdAt: WrapperQueryBuilderFieldsTypeDate;
+}>;

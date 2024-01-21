@@ -1,43 +1,50 @@
-import { QueryBuilderFields, QueryBuilderFieldsPageLimit, WrapperQueryBuilderFieldsType, WrapperQueryBuilderFieldsTypeDate } from '@/core/builder/query-fields.interface';
+import {
+  QueryBuilderFields,
+  QueryBuilderFieldsPageLimit,
+  WrapperQueryBuilderFieldsType,
+  WrapperQueryBuilderFieldsTypeDate,
+} from '@/core/builder/query-fields.interface';
 import { SortType } from '@/interfaces/enums';
 
-type SelectReviewFields = 'id' | 'movieId' | 'title' | 'type' | 'review' | 'date' | 'author' | 'authorId' | 'updatedAt' | 'createdAt'
+type SelectReviewFields =
+  | 'id'
+  | 'movieId'
+  | 'title'
+  | 'type'
+  | 'review'
+  | 'date'
+  | 'author'
+  | 'authorId'
+  | 'updatedAt'
+  | 'createdAt';
 
-enum RequestReviewFields {
-  'id' = 'id',
-  'movieId' = 'movieId',
-  'title' = 'title',
-  'type' = 'type',
-  'review' = 'review',
-  'date' = 'date',
-  'author' = 'author',
-  'authorId' = 'authorId',
-  'updatedAt' = 'updatedAt',
-  'createdAt' = 'createdAt'
-}
+type RequestReviewFields =
+  | 'id'
+  | 'movieId'
+  | 'title'
+  | 'type'
+  | 'review'
+  | 'date'
+  | 'author'
+  | 'authorId'
+  | 'updatedAt'
+  | 'createdAt';
 
 export type ReviewDto = QueryBuilderFieldsPageLimit<{
-  notNullFields: RequestReviewFields[]
-  sortField: RequestReviewFields[]
+  notNullFields: keyof RequestReviewFields;
+  sortField: RequestReviewFields[];
   selectFields: SelectReviewFields[];
   sortType: SortType;
 
-  [RequestReviewFields.id]: WrapperQueryBuilderFieldsType<number,
+  id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  movieId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  authorId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
+  author: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
+  type: WrapperQueryBuilderFieldsType<
+    'Негативный' | 'Нейтральный' | 'Позитивный',
     QueryBuilderFields.$range
   >;
-  [RequestReviewFields.movieId]: WrapperQueryBuilderFieldsType<number,
-    QueryBuilderFields.$range
-  >;
-  [RequestReviewFields.authorId]: WrapperQueryBuilderFieldsType<number,
-    QueryBuilderFields.$range
-  >;
-  [RequestReviewFields.author]: WrapperQueryBuilderFieldsType<string,
-    QueryBuilderFields.$range
-  >;
-  [RequestReviewFields.type]: WrapperQueryBuilderFieldsType<'Негативный' | 'Нейтральный' | 'Позитивный',
-    QueryBuilderFields.$range
-  >;
-  [RequestReviewFields.date]: WrapperQueryBuilderFieldsTypeDate
-  [RequestReviewFields.updatedAt]: WrapperQueryBuilderFieldsTypeDate;
-  [RequestReviewFields.createdAt]: WrapperQueryBuilderFieldsTypeDate;
-}>
+  date: WrapperQueryBuilderFieldsTypeDate;
+  createdAt: WrapperQueryBuilderFieldsTypeDate;
+  updatedAt: WrapperQueryBuilderFieldsTypeDate;
+}>;
