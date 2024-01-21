@@ -9,6 +9,10 @@ export class QueryBuilder
     });
   }
 
+  private throwError(str: string) {
+    throw new Error(str)
+  }
+
   build(params: { [key: string]: QueryBuilderFieldsType<string | number | boolean | Date> | string | number | (string | number)[] } | undefined = {}) {
     const query = new URLSearchParams()
 
@@ -47,15 +51,15 @@ export class QueryBuilder
                 })
               } else if (QueryBuilderFields.$range === queryBuilderField) {
                 if (!currentQueryBuilderField?.[0] || !(typeof currentQueryBuilderField?.[0] === 'number')) {
-                  throw Error('Not number')
+                  this.throwError(`${queryField}: ${queryBuilderField}[0] must be an number, given ${typeof currentQueryBuilderField?.[0]}`)
                 } else if (!currentQueryBuilderField?.[1] || !(typeof currentQueryBuilderField?.[1] === 'number')) {
-                  throw Error('Not number')
+                  this.throwError(`${queryField}: ${queryBuilderField}[1] must be an number, given ${typeof currentQueryBuilderField?.[1]}`)
                 } else {
                   appendToQuery(queryField, `${currentQueryBuilderField[0]}-${currentQueryBuilderField[1]}`)
                 }
               }
             } else {
-              console.warn(`${queryField}: ${QueryBuilderFields.$in} must be an Array, given ${typeof currentQueryBuilderField}`)
+              this.throwError(`${queryField}: ${queryBuilderField} must be an Array, given ${typeof currentQueryBuilderField}`)
             }
           }
         })
