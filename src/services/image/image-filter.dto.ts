@@ -1,4 +1,5 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
@@ -32,9 +33,8 @@ type RequestImageFields =
 
 export type ImageDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestImageFields[];
-  sortField: RequestImageFields[];
+  sort: QueryBuilderFieldSort<RequestImageFields>
   selectFields: SelectImageFields[];
-  sortType: SortType;
 
   id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
   type: WrapperQueryBuilderFieldsType<

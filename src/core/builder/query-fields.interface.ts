@@ -1,3 +1,5 @@
+import { SortType } from "@/interfaces/enums";
+
 export enum QueryBuilderFields {
   $in = '$in',
   $and = '$and',
@@ -26,5 +28,9 @@ export type QueryBuilderFieldsPageLimit<T> = Partial<{
   page: number;
   limit: number;
 } & T>
+
+export type QueryBuilderFieldSort<T extends string> = Partial<{
+  [key in T]: SortType
+}>
 
 export type WrapperQueryBuilderFieldsTypeDate =  WrapperQueryBuilderFieldsType<Date>

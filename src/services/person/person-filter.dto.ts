@@ -1,10 +1,10 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
 } from '@/core/builder/query-fields.interface';
-import { SortType } from '@/interfaces/enums';
 
 type SelectPersonFields =
   | 'id'
@@ -60,9 +60,8 @@ type RequestPersonFields =
 
 export type PersonDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestPersonFields[];
-  sortField: RequestPersonFields[];
+  sort: QueryBuilderFieldSort<RequestPersonFields>;
   selectFields: SelectPersonFields[];
-  sortType: SortType;
 
   id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
   'movies.id': WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
@@ -108,9 +107,8 @@ type RequestPersonAwardFields =
 
 export type PersonAwardsDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestPersonAwardFields[];
-  sortField: RequestPersonAwardFields[];
+  sort: QueryBuilderFieldSort<RequestPersonAwardFields>;
   selectFields: SelectAwardsFields[];
-  sortType: SortType;
 
   winning: boolean;
   personId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;

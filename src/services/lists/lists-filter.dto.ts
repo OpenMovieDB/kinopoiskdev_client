@@ -1,10 +1,10 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
 } from '@/core/builder/query-fields.interface';
-import { SortType } from '@/interfaces/enums';
 
 type SelectListsFields =
   | 'name'
@@ -27,9 +27,8 @@ type RequestListsFields =
 
 export type ListsDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestListsFields[];
-  sortField: RequestListsFields[];
   selectFields: SelectListsFields[];
-  sortType: SortType;
+  sort: QueryBuilderFieldSort<RequestListsFields>
 
   slug: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
   category: WrapperQueryBuilderFieldsType<

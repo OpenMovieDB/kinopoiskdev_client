@@ -1,4 +1,5 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsType,
 } from './query-fields.interface';
@@ -28,6 +29,7 @@ export class QueryBuilder {
       | {
           [key: string]:
             | QueryBuilderFieldsType<string | number | boolean | Date>
+            | QueryBuilderFieldSort<string>
             | string
             | number
             | boolean
@@ -55,7 +57,16 @@ export class QueryBuilder {
           const currentQueryBuilderField =
             params[queryField][queryBuilderField];
 
-          if (
+          if (queryField === 'sort') {
+            appendToQuery(
+              'sortField',
+              queryBuilderField,
+            );
+            appendToQuery(
+              'sortType',
+              currentQueryBuilderField,
+            );
+          } else if (
             [QueryBuilderFields.$ne, QueryBuilderFields.$eq].includes(
               queryBuilderField as QueryBuilderFields,
             )

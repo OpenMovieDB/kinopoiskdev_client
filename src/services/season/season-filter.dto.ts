@@ -1,10 +1,10 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
 } from '@/core/builder/query-fields.interface';
-import { SortType } from '@/interfaces/enums';
 
 type SelectSeasonFields =
   | 'movieId'
@@ -43,9 +43,8 @@ type RequestSeasonFields =
 
 export type SeasonDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestSeasonFields[];
-  sortField: RequestSeasonFields[];
+  sort: QueryBuilderFieldSort<RequestSeasonFields>;
   selectFields: SelectSeasonFields[];
-  sortType: SortType;
 
   movieId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
   number: WrapperQueryBuilderFieldsType<number>;

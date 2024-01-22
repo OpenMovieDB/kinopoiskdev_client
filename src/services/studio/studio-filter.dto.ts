@@ -1,10 +1,10 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
 } from '@/core/builder/query-fields.interface';
-import { SortType } from '@/interfaces/enums';
 
 type SelectStudioFields =
   | 'id'
@@ -26,9 +26,8 @@ type RequestStudioFields =
 
 export type StudioDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestStudioFields[];
-  sortField: RequestStudioFields[];
+  sort: QueryBuilderFieldSort<RequestStudioFields>
   selectFields: SelectStudioFields[];
-  sortType: SortType;
 
   id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
   moviesId: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;

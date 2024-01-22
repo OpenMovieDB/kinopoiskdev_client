@@ -1,10 +1,10 @@
 import {
+  QueryBuilderFieldSort,
   QueryBuilderFields,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
 } from '@/core/builder/query-fields.interface';
-import { SortType } from '@/interfaces/enums';
 
 type SelectMovieFields =
   | 'id'
@@ -157,9 +157,8 @@ type RequestMovieFields =
 
 export type MovieDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestMovieFields[];
-  sortField: RequestMovieFields[];
+  sort: QueryBuilderFieldSort<RequestMovieFields>;
   selectFields: SelectMovieFields[];
-  sortType: SortType;
 
   isSeries: boolean;
   id: WrapperQueryBuilderFieldsType<number>;
@@ -280,9 +279,8 @@ type RequestMovieAwardFields =
 
 export type MovieAwardsDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestMovieAwardFields[];
-  sortField: RequestMovieAwardFields[];
   selectFields: SelectAwardsFields[];
-  sortType: SortType;
+  sort: QueryBuilderFieldSort<RequestMovieAwardFields>
 
   winning: boolean;
   movieId: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
