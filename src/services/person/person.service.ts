@@ -1,7 +1,7 @@
 import { ClientRequest } from '@/core/request/client-request';
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
-import { MeiliPersonEntity, Person, PersonAward } from './person-response.dto';
+import { MeiliPersonEntity, Person, PersonAward } from './person-response.interface';
 import { PersonAwardsDto, PersonDto } from './person-filter.dto';
 import { QueryBuilderFieldsPageLimit } from '@/core/builder/query-fields.interface';
 

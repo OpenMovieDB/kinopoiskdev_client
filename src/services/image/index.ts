@@ -1,1 +1,2 @@
-export * from './image-response.dto';
+export * from './image-response.interface';
+export * from './image-filter.dto';

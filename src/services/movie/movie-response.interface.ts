@@ -1,5 +1,5 @@
 import { ShortImage } from "@/interfaces/response/response.interface";
-import { Nomination } from "@/services/person/person-response.dto";
+import { Nomination } from "@/services/person/person-response.interface";
 
 /**
  *
@@ -787,10 +787,9 @@ export interface MeiliMovieEntity {
 
 /**
  *
- * @export
  * @interface MovieDtoV1
  */
-export interface MovieDtoV1 {
+interface MovieDtoV1 {
   /**
    * Id фильма с кинопоиска
    * @type {number}
@@ -1029,10 +1028,9 @@ export interface MovieDtoV1 {
 
 /**
  *
- * @export
  * @interface MovieDtoV13
  */
-export interface MovieDtoV13 extends MovieDtoV1 {
+interface MovieDtoV13 extends MovieDtoV1 {
   /**
    * Признак того, что тайтл находится в прокате
    * @type {boolean}

@@ -2,7 +2,7 @@ import { ClientRequest } from '@/core/request/client-request';
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { MovieAwardsDto, MovieDto } from './movie-filter.dto';
-import { MeiliMovieEntity, MovieDtoV14, PartialTypeClass, PossibleValueDto } from './movie-response.dto';
+import { MeiliMovieEntity, MovieDtoV14, PartialTypeClass, PossibleValueDto } from './movie-response.interface';
 import { QueryBuilderFieldsPageLimit } from '@/core/builder/query-fields.interface';
 export class MovieService {
   constructor(private readonly request: ClientRequest) {}

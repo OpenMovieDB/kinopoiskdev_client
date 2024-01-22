@@ -1,1 +1,2 @@
-export * from './person-response.dto';
+export * from './person-response.interface';
+export * from './person-filter.dto';

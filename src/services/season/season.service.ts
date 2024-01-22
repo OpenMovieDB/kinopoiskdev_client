@@ -1,7 +1,7 @@
 import { ClientRequest } from '@/core/request/client-request';
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
-import { Season } from './season-response.dto';
+import { Season } from './season-response.interface';
 import { SeasonDto } from './season-filter.dto';
 
 export class SeasonService {

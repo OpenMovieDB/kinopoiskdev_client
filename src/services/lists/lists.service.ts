@@ -2,7 +2,7 @@ import { ClientRequest } from '@/core/request/client-request';
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { ListsDto } from './lists-filter.dto';
-import { Lists } from './lists-response.dto';
+import { Lists } from './lists-response.interface';
 
 export class ListsService {
   constructor(private readonly request: ClientRequest) {}

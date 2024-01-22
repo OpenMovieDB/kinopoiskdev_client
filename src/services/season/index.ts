@@ -1,1 +1,2 @@
-export * from './season-response.dto';
+export * from './season-response.interface';
+export * from './season-filter.dto';

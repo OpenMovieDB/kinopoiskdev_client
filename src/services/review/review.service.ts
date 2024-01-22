@@ -1,7 +1,7 @@
 import { ClientRequest } from '@/core/request/client-request';
 import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
-import { Review } from './review-response.dto';
+import { Review } from './review-response.interface';
 import { ReviewDto } from './review-filter.dto';
 export class ReviewService {
   constructor(private readonly request: ClientRequest) {}

@@ -1,1 +1,2 @@
-export * from './review-response.dto';
+export * from './review-response.interface';
+export * from './review-filter.dto';
