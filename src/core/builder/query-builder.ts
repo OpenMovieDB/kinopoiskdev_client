@@ -124,7 +124,7 @@ export class QueryBuilder {
                   );
                 } else {
                   this.throwError(
-                    `${queryField}: ${queryBuilderField} must be an Date or Number, given [${currentQueryBuilderField?.[0]}, ${currentQueryBuilderField?.[0]}]`,
+                    `${queryField}: ${queryBuilderField} must be an Date or Number, given [${currentQueryBuilderField?.[0]}, ${currentQueryBuilderField?.[1]}]`,
                   );
                 }
               }
