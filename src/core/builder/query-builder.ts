@@ -19,9 +19,8 @@ export class QueryBuilder {
     return val instanceof Date;
   }
 
-  private isNumeric(str: any) {
-    if (typeof str !== 'string') return false;
-    return !isNaN(str) && !isNaN(parseFloat(str));
+  private isNumeric(value: any) {
+    return  typeof value === "number" && !Number.isNaN(value);
   }
 
   build(
