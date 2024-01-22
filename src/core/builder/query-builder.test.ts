@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import { QueryBuilder } from './query-builder';
+import { SortType } from '@/interfaces/enums';
 
 const queryBuilder: QueryBuilder = new QueryBuilder();
 
@@ -7,6 +8,9 @@ test('Should select fields for number all', () => {
   const query = queryBuilder.build({
     isSeries: true,
     actor: 'Timberlake',
+    sort: {
+      'externalId.imdb': SortType.DESC
+    },
     'externalId.imdb': {
       $in: [200, 300, 400],
       $and: [501, 601, 701],
@@ -17,5 +21,5 @@ test('Should select fields for number all', () => {
     },
   });
 
-  expect(query).toBe('isSeries=true&actor=Timberlake&externalId.imdb=%2521200&externalId.imdb=%2521300&externalId.imdb=%2521400&externalId.imdb=%252B501&externalId.imdb=%252B601&externalId.imdb=%252B701&%24eq=2000&%24ne=%25211001&externalId.imdb=%25213001&externalId.imdb=%25214001&externalId.imdb=%25215001&externalId.imdb=2020-01-01-2020-01-01');
+  expect(query).toBe('isSeries=true&actor=Timberlake&sortField=externalId.imdb&sortType=-1&externalId.imdb=%2521200&externalId.imdb=%2521300&externalId.imdb=%2521400&externalId.imdb=%252B501&externalId.imdb=%252B601&externalId.imdb=%252B701&%24eq=2000&%24ne=%25211001&externalId.imdb=%25213001&externalId.imdb=%25214001&externalId.imdb=%25215001&externalId.imdb=2020-01-01-2020-01-01');
 });
