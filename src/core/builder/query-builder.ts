@@ -21,20 +21,20 @@ export class QueryBuilder {
   }
 
   private isNumeric(value: any) {
-    return typeof value === "number" && !Number.isNaN(value);
+    return typeof value === 'number' && !Number.isNaN(value);
   }
 
   build(
     params:
       | {
-        [key: string]:
-        | QueryBuilderFieldsType<string | number | boolean | Date>
-        | QueryBuilderFieldSort<string>
-        | string
-        | number
-        | boolean
-        | (string | number)[];
-      }
+          [key: string]:
+            | QueryBuilderFieldsType<string | number | boolean | Date>
+            | QueryBuilderFieldSort<string>
+            | string
+            | number
+            | boolean
+            | (string | number)[];
+        }
       | undefined = {},
   ) {
     const query = new URLSearchParams();
@@ -58,18 +58,20 @@ export class QueryBuilder {
             params[queryField][queryBuilderField];
 
           if (queryField === 'sort') {
-            if (![SortType.ASC, SortType.DESC].includes(currentQueryBuilderField as SortType)) {
-              this.throwError(`${queryField}: ${queryBuilderField} must be one of [${Object.values(SortType)}], given ${currentQueryBuilderField}`,)
+            if (
+              ![SortType.ASC, SortType.DESC].includes(
+                currentQueryBuilderField as SortType,
+              )
+            ) {
+              this.throwError(
+                `${queryField}: ${queryBuilderField} must be one of [${Object.values(
+                  SortType,
+                )}], given ${currentQueryBuilderField}`,
+              );
             }
 
-            appendToQuery(
-              'sortField',
-              queryBuilderField,
-            );
-            appendToQuery(
-              'sortType',
-              currentQueryBuilderField,
-            );
+            appendToQuery('sortField', queryBuilderField);
+            appendToQuery('sortType', currentQueryBuilderField);
           } else if (
             [QueryBuilderFields.$ne, QueryBuilderFields.$eq].includes(
               queryBuilderField as QueryBuilderFields,
@@ -77,10 +79,7 @@ export class QueryBuilder {
           ) {
             const suffix =
               QueryBuilderFields.$ne === queryBuilderField ? '!' : '';
-            appendToQuery(
-              queryField,
-              `${suffix}${currentQueryBuilderField}`,
-            );
+            appendToQuery(queryField, `${suffix}${currentQueryBuilderField}`);
           } else if (
             [
               QueryBuilderFields.$in,
@@ -101,8 +100,8 @@ export class QueryBuilder {
                   QueryBuilderFields.$and === queryBuilderField
                     ? '+'
                     : QueryBuilderFields.$nin
-                      ? '!'
-                      : '';
+                    ? '!'
+                    : '';
                 currentQueryBuilderField.forEach(item => {
                   appendToQuery(queryField, `${suffix}${item}`);
                 });
@@ -141,7 +140,10 @@ export class QueryBuilder {
           }
         });
       } else {
-        appendToQuery(queryField, params[queryField] as string | number | boolean);
+        appendToQuery(
+          queryField,
+          params[queryField] as string | number | boolean,
+        );
       }
     });
 
