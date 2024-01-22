@@ -20,20 +20,20 @@ export class QueryBuilder {
   }
 
   private isNumeric(value: any) {
-    return  typeof value === "number" && !Number.isNaN(value);
+    return typeof value === "number" && !Number.isNaN(value);
   }
 
   build(
     params:
       | {
-          [key: string]:
-            | QueryBuilderFieldsType<string | number | boolean | Date>
-            | QueryBuilderFieldSort<string>
-            | string
-            | number
-            | boolean
-            | (string | number)[];
-        }
+        [key: string]:
+        | QueryBuilderFieldsType<string | number | boolean | Date>
+        | QueryBuilderFieldSort<string>
+        | string
+        | number
+        | boolean
+        | (string | number)[];
+      }
       | undefined = {},
   ) {
     const query = new URLSearchParams();
@@ -96,8 +96,8 @@ export class QueryBuilder {
                   QueryBuilderFields.$and === queryBuilderField
                     ? '+'
                     : QueryBuilderFields.$nin
-                    ? '!'
-                    : '';
+                      ? '!'
+                      : '';
                 currentQueryBuilderField.forEach(item => {
                   appendToQuery(queryField, `${suffix}${item}`);
                 });
