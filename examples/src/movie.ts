@@ -34,6 +34,11 @@ const getRelatedByQueryBuilderMovies = async () => {
     "countries.name": {
       $and: ['CША', 'Россия']
     },
+    
+    // Добавляем сортировку по рейтингу
+    sort: {
+      'rating.kp': SortType.DESC
+    },
 
     // Добавляем пагинацию и получаем 1 страницу по с 10 фильмами на странице
     page: 1,
@@ -72,8 +77,9 @@ const getRelatedWithoutQueryBuilderMovies = async () => {
     },
     notNullFields: ['poster.url'],
     // Добавляем сортировку по рейтингу
-    sortField: ['rating.kp'],
-    sortType: SortType.DESC,
+    sort: {
+      "rating.kp": SortType.DESC
+    },
     // Добавляем пагинацию и получаем 1 страницу по с 10 фильмами на странице
     page: 1,
     limit: 10,
