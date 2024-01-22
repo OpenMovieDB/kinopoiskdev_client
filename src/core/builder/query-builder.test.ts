@@ -44,18 +44,40 @@ test('Test sort prop', () => {
   });
 
   expect(query).toBe('sortField=external.imdb&sortType=-1&sortField=external.kpHD&sortType=1&sortField=external.foo&sortType=-1&sortField=foo&sortType=1&sortField=boo&sortType=1');
+});
 
+test.each([
+  {
+    label: 'Test string',
+    val: 'SortType.DESC'
+  },
+  {
+    label: 'Test number',
+    val: 123
+  },
+  {
+    label: 'Test boolean',
+    val: false
+  },
+  {
+    label: 'Test object',
+    val: {}
+  },
+  {
+    label: 'Test array',
+    val: []
+  },
+  {
+    label: 'Test NaN',
+    val: NaN
+  },
+])('$label sort wrong value $val', ({ val }) => {
   expect(() => queryBuilder.build({
     sort: {
-      'external.imdb': 'SortType.DESC',
-      'external.kpHD': 123,
-      'external.foo': 'a[psd',
-      'foo': false,
-      'boo': NaN,
+      'external.imdb': val,
     },
   })).toThrowError(/given/);
-
-});
+})
 
 
 test('Check Date range for $range prop', () => {
@@ -66,6 +88,14 @@ test('Check Date range for $range prop', () => {
   });
 
   expect(query).toBe('externalId.imdb=2020-01-01-2020-01-01');
+
+  const query2 = queryBuilder.build({
+    'externalId.imdb': {
+      $range: [2020, 2023],
+    },
+  });
+
+  expect(query2).toBe('externalId.imdb=2020-2023');
 
   expect(() => queryBuilder.build({
     'externalId.imdb': {
