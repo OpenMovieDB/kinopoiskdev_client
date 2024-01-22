@@ -1,3 +1,4 @@
+import { SortType } from '@/interfaces/enums';
 import {
   QueryBuilderFieldSort,
   QueryBuilderFields,
@@ -57,6 +58,10 @@ export class QueryBuilder {
             params[queryField][queryBuilderField];
 
           if (queryField === 'sort') {
+            if (![SortType.ASC, SortType.DESC].includes(currentQueryBuilderField as SortType)) {
+              this.throwError(`${queryField}: ${queryBuilderField} must be one of [${Object.values(SortType)}], given ${currentQueryBuilderField}`,)
+            }
+
             appendToQuery(
               'sortField',
               queryBuilderField,
@@ -73,7 +78,7 @@ export class QueryBuilder {
             const suffix =
               QueryBuilderFields.$ne === queryBuilderField ? '!' : '';
             appendToQuery(
-              queryBuilderField,
+              queryField,
               `${suffix}${currentQueryBuilderField}`,
             );
           } else if (
