@@ -4,6 +4,7 @@ import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface
 import { MeiliPersonEntity, Person, PersonAward } from './person-response.interface';
 import { PersonAwardsDto, PersonDto } from './person-filter.dto';
 import { QueryBuilderFieldsPageLimit } from '@/core/builder/query-fields.interface';
+import { QueryBuilder } from '@/core/builder/query-builder';
 
 export class PersonService {
   constructor(private readonly request: ClientRequest) {}
@@ -13,21 +14,21 @@ export class PersonService {
   }
 
   async getByFilters(
-    filters: PersonDto,
+    filters: QueryBuilder<PersonDto>,
   ): Promise<WrapperDocsResponseDto<Person>> {
     return await this.request.get<Person, typeof filters>(VERSION.V1_4, `/person`, filters);
   }
 
   async getBySearchQuery(
-    filters: QueryBuilderFieldsPageLimit<{
+    filters: QueryBuilder<QueryBuilderFieldsPageLimit<{
       query: string;
-    }>,
+    }>>,
   ): Promise<WrapperDocsResponseDto<MeiliPersonEntity>> {
     return await this.request.get<MeiliPersonEntity, typeof filters>(VERSION.V1_4, `/person/search`, filters);
   }
 
   async getAwardsByFilters(
-    filters: PersonAwardsDto
+    filters: QueryBuilder<PersonAwardsDto>
   ): Promise<WrapperDocsResponseDto<PersonAward>> {
     return await this.request.get<PersonAward, typeof filters>(VERSION.V1_4, `/movie/awards`, filters);
   }

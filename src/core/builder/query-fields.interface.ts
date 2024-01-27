@@ -9,6 +9,12 @@ export enum QueryBuilderFields {
   $eq = '$eq',
 }
 
+export enum QueryPreSuffixes {
+  include = '+',
+  exclude = '!',
+  empty = '',
+}
+
 export type QueryBuilderFieldsType<T> = {
   [QueryBuilderFields.$in]?: T[];
   [QueryBuilderFields.$and]?: T[];
@@ -32,5 +38,20 @@ export type QueryBuilderFieldsPageLimit<T> = Partial<{
 export type QueryBuilderFieldSort<T extends string> = Partial<{
   [key in T]: SortType
 }>
+
+export type ParamsQueryWithSuffix<T = string> = {
+  key: T;
+  value: string | number;
+}[];
+
+export type ParamsQuery<T = string> = {
+  key: T;
+  value: string | number | boolean;
+}[];
+
+
+export interface IQueryBuilder {
+  build(): string;
+}
 
 export type WrapperQueryBuilderFieldsTypeDate =  WrapperQueryBuilderFieldsType<Date>

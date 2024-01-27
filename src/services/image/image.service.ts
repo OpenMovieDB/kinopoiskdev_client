@@ -3,12 +3,13 @@ import { VERSION } from '@/interfaces/enums/version.enum';
 import { WrapperDocsResponseDto } from '@/interfaces/response/response.interface';
 import { Image } from './image-response.interface';
 import { ImageDto } from './image-filter.dto';
+import { QueryBuilder } from '@/core/builder/query-builder';
 
 export class ImageService {
   constructor(private readonly request: ClientRequest) {}
 
   async getByFilters(
-    filters: ImageDto,
+    filters: QueryBuilder<ImageDto>,
   ): Promise<WrapperDocsResponseDto<Image>> {
     return await this.request.get<Image, typeof filters>(
       VERSION.V1_4,
