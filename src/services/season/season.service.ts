@@ -11,6 +11,6 @@ export class SeasonService {
   async getByFilters(
     filters: QueryBuilder<SeasonDto>,
   ): Promise<WrapperDocsResponseDto<Season>> {
-    return await this.request.get<Season, typeof filters>(VERSION.V1_4, `/season`, filters);
+    return await this.request.get<Season>(VERSION.V1_4, `/season`, filters);
   }
 }

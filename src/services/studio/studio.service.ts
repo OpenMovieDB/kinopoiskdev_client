@@ -11,6 +11,6 @@ export class StudioService {
   async getByFilters(
     filters: QueryBuilder<StudioDto>,
   ): Promise<WrapperDocsResponseDto<Studio>> {
-    return await this.request.get<Studio, typeof filters>(VERSION.V1_4, `/studio`, filters);
+    return await this.request.get<Studio>(VERSION.V1_4, `/studio`, filters);
   }
 }

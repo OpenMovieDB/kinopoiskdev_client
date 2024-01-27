@@ -11,7 +11,7 @@ export class ImageService {
   async getByFilters(
     filters: QueryBuilder<ImageDto>,
   ): Promise<WrapperDocsResponseDto<Image>> {
-    return await this.request.get<Image, typeof filters>(
+    return await this.request.get<Image>(
       VERSION.V1_4,
       `/image`,
       filters,

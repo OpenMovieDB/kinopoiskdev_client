@@ -8,17 +8,20 @@ export class ClientRequest {
     private readonly API_URL: string,
   ) {}
 
-  private queryBuilder: QueryBuilder = new QueryBuilder()
 
-
-  async get<T, P = any>(
+  async get<T>(
     version: VERSION,
     path: string,
-    params?: P,
+    params?: QueryBuilder,
   ): Promise<IResponse<DocsResponse<T>>> {
     try {
+      let buildParams = ''
+      if (params) {
+        buildParams = `?${params.build?.() ?? ''}`
+      }
+
       const response = await fetch(
-        `${this.API_URL}/${version}${path}?${this.queryBuilder.build(params)}`,
+        `${this.API_URL}/${version}${path}${buildParams}`,
         { headers: { 'X-API-KEY': this.API_KEY } },
       );
 

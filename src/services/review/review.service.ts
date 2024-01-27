@@ -10,6 +10,6 @@ export class ReviewService {
   async getByFilters(
     filters: QueryBuilder<ReviewDto>,
   ): Promise<WrapperDocsResponseDto<Review>> {
-    return await this.request.get<Review, typeof filters>(VERSION.V1_4, `/review`, filters);
+    return await this.request.get<Review>(VERSION.V1_4, `/review`, filters);
   }
 }

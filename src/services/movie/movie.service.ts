@@ -19,7 +19,7 @@ export class MovieService {
   async getByFilters(
     filters: QueryBuilder<MovieDto>,
   ): Promise<WrapperDocsResponseDto<MovieDtoV14>> {
-    return await this.request.get<MovieDtoV14, typeof filters>(VERSION.V1_4, `/movie`, filters);
+    return await this.request.get<MovieDtoV14>(VERSION.V1_4, `/movie`, filters);
   }
 
   async getBySearchQuery(
@@ -27,20 +27,18 @@ export class MovieService {
       query: string;
     }>>,
   ): Promise<WrapperDocsResponseDto<MeiliMovieEntity>> {
-    return await this.request.get<MeiliMovieEntity, typeof filters>(VERSION.V1_4, `/movie/search`, filters);
+    return await this.request.get<MeiliMovieEntity>(VERSION.V1_4, `/movie/search`, filters);
   }
 
   async getAwardsByFilters(
     filters: QueryBuilder<MovieAwardsDto>,
   ): Promise<WrapperDocsResponseDto<PartialTypeClass>> {
-    return await this.request.get<PartialTypeClass, typeof filters>(VERSION.V1_4, `/movie/awards`, filters);
+    return await this.request.get<PartialTypeClass>(VERSION.V1_4, `/movie/awards`, filters);
   }
 
   getPossibleValuesByField(
     filters: QueryBuilder<{ field : 'type' | 'countries.name' | 'genres.name' | 'typeNumber' | 'status'}>,
   ): Promise<WrapperDocsResponseDto<PossibleValueDto>> {
-    return this.request.get<PossibleValueDto>(VERSION.V1, `/movie/possible-values-by-field`, {
-      filters,
-    });
+    return this.request.get<PossibleValueDto>(VERSION.V1, `/movie/possible-values-by-field`, filters);
   }
 }

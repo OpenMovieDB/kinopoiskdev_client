@@ -16,7 +16,7 @@ export class PersonService {
   async getByFilters(
     filters: QueryBuilder<PersonDto>,
   ): Promise<WrapperDocsResponseDto<Person>> {
-    return await this.request.get<Person, typeof filters>(VERSION.V1_4, `/person`, filters);
+    return await this.request.get<Person>(VERSION.V1_4, `/person`, filters);
   }
 
   async getBySearchQuery(
@@ -24,12 +24,12 @@ export class PersonService {
       query: string;
     }>>,
   ): Promise<WrapperDocsResponseDto<MeiliPersonEntity>> {
-    return await this.request.get<MeiliPersonEntity, typeof filters>(VERSION.V1_4, `/person/search`, filters);
+    return await this.request.get<MeiliPersonEntity>(VERSION.V1_4, `/person/search`, filters);
   }
 
   async getAwardsByFilters(
     filters: QueryBuilder<PersonAwardsDto>
   ): Promise<WrapperDocsResponseDto<PersonAward>> {
-    return await this.request.get<PersonAward, typeof filters>(VERSION.V1_4, `/movie/awards`, filters);
+    return await this.request.get<PersonAward>(VERSION.V1_4, `/movie/awards`, filters);
   }
 }

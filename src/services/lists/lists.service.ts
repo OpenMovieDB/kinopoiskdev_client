@@ -15,6 +15,6 @@ export class ListsService {
   async getByFilters(
     filters: QueryBuilder<ListsDto>,
   ): Promise<WrapperDocsResponseDto<Lists>> {
-    return await this.request.get<Lists, typeof filters>(VERSION.V1_4, `/list`, filters);
+    return await this.request.get<Lists>(VERSION.V1_4, `/list`, filters);
   }
 }

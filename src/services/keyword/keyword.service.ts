@@ -10,6 +10,6 @@ export class KeywordService {
   async getByFilters(
     filters: QueryBuilder<KeywordDto>,
   ): Promise<WrapperDocsResponseDto<Keyword>> {
-    return await this.request.get<Keyword, typeof filters>(VERSION.V1_4, `/keyword`, filters);
+    return await this.request.get<Keyword>(VERSION.V1_4, `/keyword`, filters);
   }
 }
