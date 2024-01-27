@@ -16,7 +16,8 @@ export class ClientRequest {
   ): Promise<IResponse<DocsResponse<T>>> {
     try {
       let buildParams = ''
-      if (params) {
+      if (params && params instanceof QueryBuilder && params.build) {
+
         buildParams = `?${params.build?.() ?? ''}`
       }
 
