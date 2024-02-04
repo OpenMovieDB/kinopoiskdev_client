@@ -1,4 +1,3 @@
-
 export enum TypeEnum {
   _0 = 'Производство',
   _1 = 'Спецэффекты',
@@ -7,10 +6,10 @@ export enum TypeEnum {
 }
 
 /**
-   *
-   * @export
-   * @interface MovieFromStudio
-   */
+ *
+ * @export
+ * @interface MovieFromStudio
+ */
 export interface MovieFromStudio {
   /**
    *
@@ -21,11 +20,11 @@ export interface MovieFromStudio {
 }
 
 /**
-   *
-   * @export
-   * @interface Studio
-   */
- export interface Studio {
+ *
+ * @export
+ * @interface Studio
+ */
+export interface Studio {
   /**
    *
    * @type {string}
@@ -52,8 +51,20 @@ export interface MovieFromStudio {
   type?: TypeEnum;
   /**
    *
-   * @type {MovieFromStudio}
+   * @type {MovieFromStudio[]}
    * @memberof Studio
    */
-  movies?: MovieFromStudio;
+  movies?: MovieFromStudio[];
+
+  /**
+   * @type {Date}
+   * @memberof Studio
+   */
+  updatedAt: Date;
+
+  /**
+   * @type {Date}
+   * @memberof Studio
+   */
+  createdAt: Date;
 }

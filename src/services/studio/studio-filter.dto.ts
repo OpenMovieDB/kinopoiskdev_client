@@ -1,6 +1,6 @@
 import {
-  QueryBuilderFieldSort,
   QueryBuilderFields,
+  QueryBuilderFieldSort,
   QueryBuilderFieldsPageLimit,
   WrapperQueryBuilderFieldsType,
   WrapperQueryBuilderFieldsTypeDate,
@@ -26,11 +26,11 @@ type RequestStudioFields =
 
 export type StudioDto = QueryBuilderFieldsPageLimit<{
   notNullFields: RequestStudioFields[];
-  sort: QueryBuilderFieldSort<RequestStudioFields>
+  sort: QueryBuilderFieldSort<RequestStudioFields>;
   selectFields: SelectStudioFields[];
 
-  id: WrapperQueryBuilderFieldsType<number, QueryBuilderFields.$range>;
-  moviesId: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
+  id: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
+  'movies.id': WrapperQueryBuilderFieldsType<number>;
   type: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
   subType: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
   title: WrapperQueryBuilderFieldsType<string, QueryBuilderFields.$range>;
