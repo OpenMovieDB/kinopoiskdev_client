@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a2cdd0b-fe43-403f-9a92-ce3a2f4b3cba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/studio/studio.serive.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kinopoiskdev_ts_client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/src/movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/src/movie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/builder/query-builder.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/builder/query-builder.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/builder/query-builder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/builder/query-builder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/builder/query-fields.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/builder/query-fields.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/request/client-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/request/client-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/studio/studio-filter.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/studio/studio-filter.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/studio/studio-response.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/studio/studio-response.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/studio/studio.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/studio/studio.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2btenTAPIfySOgq21CMXdi5p8CG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Vitest.$label function createQueryByProps.executor": "Run",
+    "Vitest.$label in function sort wrong value $val.executor": "Run",
+    "git-widget-placeholder": "issue/23",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.start:dev.executor": "Debug",
+    "npm.start:movie.executor": "Run",
+    "npm.test.executor": "Debug",
+    "prettierjs.PrettierConfiguration.Package": "/Users/eugene/projects/kp/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Users/eugene/projects/kp/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="npm.test">
+    <configuration name="$label function createQueryByProps" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/core/builder/query-builder.test.ts" />
+      <test-names>
+        <test-name value="$label function createQueryByProps" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/examples/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:movie" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/examples/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:movie" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.start:movie" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="Vitest.$label function createQueryByProps" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a2cdd0b-fe43-403f-9a92-ce3a2f4b3cba" name="Changes" comment="" />
+      <created>1707038968949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707038968949</updated>
+      <workItem from="1707038970000" duration="5843000" />
+      <workItem from="1707058375600" duration="11662000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
