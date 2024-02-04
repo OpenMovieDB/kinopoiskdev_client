@@ -1,5 +1,9 @@
 import { VERSION } from '@/interfaces/enums/version.enum';
-import { DocsResponse, ErrorResponse, IResponse } from '@/interfaces/response/response.interface';
+import {
+  DocsResponse,
+  ErrorResponse,
+  IResponse,
+} from '@/interfaces/response/response.interface';
 import { QueryBuilder } from '../builder/query-builder';
 
 export class ClientRequest {
@@ -8,17 +12,20 @@ export class ClientRequest {
     private readonly API_URL: string,
   ) {}
 
-
-  async get<T>(
+  async get<T, R>(
     version: VERSION,
     path: string,
-    params?: QueryBuilder,
-  ): Promise<IResponse<DocsResponse<T>>> {
+    params?: T | QueryBuilder<T>,
+  ): Promise<IResponse<DocsResponse<R>>> {
     try {
-      let buildParams = ''
-      if (params && params instanceof QueryBuilder && params.build) {
+      let buildParams = '';
 
-        buildParams = `?${params.build?.() ?? ''}`
+      if (params && params instanceof QueryBuilder && params.build) {
+        buildParams = `?${params.build?.() ?? ''}`;
+      } else if (params && typeof params === 'object') {
+        const qb = new QueryBuilder<T>();
+        const p = qb.createQueryByProps(params as T).build();
+        buildParams = `?${p}`;
       }
 
       const response = await fetch(
@@ -45,7 +52,7 @@ export class ClientRequest {
         message: null,
       };
     } catch (error) {
-      const { status, message, error: err } = JSON.parse(error.message);
+      const { status, message, error: err } = JSON.parse(error?.message);
       console.log('There was an error with your request:', error);
       return {
         data: null,
