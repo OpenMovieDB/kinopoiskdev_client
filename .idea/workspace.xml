@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a2cdd0b-fe43-403f-9a92-ce3a2f4b3cba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="6a2cdd0b-fe43-403f-9a92-ce3a2f4b3cba" name="Changes" comment="chore: delete .idea">
       <change afterPath="$PROJECT_DIR$/src/services/studio/studio.serive.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kinopoiskdev_ts_client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/src/movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/src/movie.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/builder/query-builder.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/builder/query-builder.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/builder/query-builder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/builder/query-builder.ts" afterDir="false" />
@@ -144,11 +141,24 @@
       <option name="presentableId" value="Default" />
       <updated>1707038968949</updated>
       <workItem from="1707038970000" duration="5843000" />
-      <workItem from="1707058375600" duration="11662000" />
+      <workItem from="1707058375600" duration="11920000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: delete .idea">
+      <option name="closed" value="true" />
+      <created>1707081401176</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707081401176</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: delete .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: delete .idea" />
   </component>
 </project>
