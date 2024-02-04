@@ -9,7 +9,7 @@ import {
 } from './query-fields.interface';
 import { isString, isNumeric, isDate, isSimpleType } from '@/utils';
 
-export class QueryBuilder<T = any> implements IQueryBuilder {
+export class QueryBuilder<T = any> implements IQueryBuilder<T> {
   private query = new URLSearchParams();
 
   private throwError(str: string) {
@@ -137,7 +137,9 @@ export class QueryBuilder<T = any> implements IQueryBuilder {
   public remove(params: ParamsQuery) {
     params.forEach(item => {
       if (!isSimpleType(item.value)) {
-        this.throwError(`${item.key}: ${typeof item} must be only string, number, boolean`);
+        this.throwError(
+          `${item.key}: ${typeof item} must be only string, number, boolean`,
+        );
       } else if (!this.query.has(item.key)) {
         this.throwError(`${item.key} doesn't exist in query`);
       }
@@ -162,18 +164,20 @@ export class QueryBuilder<T = any> implements IQueryBuilder {
   public paginate(page = 1, limit = 10) {
     if (!isNumeric(page)) {
       this.throwError('Page must be a number');
-    } 
-    
+    }
+
     if (page < 1) {
       this.throwError('Page must be greater than 0');
-    } 
-    
-    if(!isNumeric(limit)) {
+    }
+
+    if (!isNumeric(limit)) {
       this.throwError('Limit must be a number');
     }
 
-    if(limit < 1 || limit > 250) {
-      this.throwError('Limit must be greater than 0 and less than or equal to 250');
+    if (limit < 1 || limit > 250) {
+      this.throwError(
+        'Limit must be greater than 0 and less than or equal to 250',
+      );
     }
 
     this.setQueryField('page', page || 1);
@@ -182,7 +186,7 @@ export class QueryBuilder<T = any> implements IQueryBuilder {
     return this;
   }
 
-  public sort(params: QueryBuilderFieldSort<string>) {
+  public sort(params: QueryBuilderFieldSort<any>) {
     Object.keys(params).forEach(queryField => {
       const currentParam = params[queryField] as SortType;
 

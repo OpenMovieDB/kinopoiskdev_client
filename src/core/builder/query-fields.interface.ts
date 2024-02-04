@@ -1,4 +1,4 @@
-import { SortType } from "@/interfaces/enums";
+import { SortType } from '@/interfaces/enums';
 
 export enum QueryBuilderFields {
   $in = '$in',
@@ -29,15 +29,16 @@ export type WrapperQueryBuilderFieldsType<
   Exclude extends QueryBuilderFields = never,
 > = Omit<QueryBuilderFieldsType<T>, Exclude>;
 
-
-export type QueryBuilderFieldsPageLimit<T> = Partial<{
-  page: number;
-  limit: number;
-} & T>
+export type QueryBuilderFieldsPageLimit<T> = Partial<
+  {
+    page: number;
+    limit: number;
+  } & T
+>;
 
 export type QueryBuilderFieldSort<T extends string> = Partial<{
-  [key in T]: SortType
-}>
+  [key in T]: SortType;
+}>;
 
 export type ParamsQueryWithSuffix<T = string> = {
   key: T;
@@ -49,9 +50,9 @@ export type ParamsQuery<T = string> = {
   value: string | number | boolean;
 }[];
 
-
-export interface IQueryBuilder {
+export interface IQueryBuilder<T> {
   build(): string;
 }
 
-export type WrapperQueryBuilderFieldsTypeDate =  WrapperQueryBuilderFieldsType<Date>
+export type WrapperQueryBuilderFieldsTypeDate =
+  WrapperQueryBuilderFieldsType<Date>;

@@ -632,7 +632,7 @@ test.each([
         'Test',
         100
       ],
-      selectFileds: ['123', '123'],
+      selectFields: ['123', '123'],
       isSeries: true,
       external: {
         $eq: 100,
@@ -642,7 +642,7 @@ test.each([
         $and: [100, 100],
       },
     },
-    rt: 'notNullFields=Test&notNullFields=100&selectFileds=123&selectFileds=123&isSeries=true&external=100&external=%21100&external=%21100&external=100-100&external=%2B100&external=%2B100',
+    rt: 'notNullFields=Test&notNullFields=100&selectFields=123&selectFields=123&isSeries=true&external=100&external=%21100&external=%21100&external=100-100&external=%2B100&external=%2B100',
   },
 ])('$label function createQueryByProps', ({ type, val, rt }) => {
   const queryBuilder = new QueryBuilder();
