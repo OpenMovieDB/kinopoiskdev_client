@@ -87,7 +87,6 @@ describe('StudioService E2E', () => {
   tests.forEach(({ name, filter, expected }) => {
     test(`StudioService.getByFilters: ${name}`, async () => {
       const response = await kp.studio.getByFilters(filter);
-
       expect(response.statusCode).toEqual(200);
       expect(response.data).toBeDefined();
       expected(response);
