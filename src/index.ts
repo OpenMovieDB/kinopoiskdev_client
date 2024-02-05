@@ -1,5 +1,4 @@
-export * from './kinopoiskdev';
-export * from './builder';
-export * from './enums';
-export * from './interfaces';
-export * from './types';
+export { KinopoiskDev } from './core/main'
+
+export * from './services'
+export * from './interfaces/enums'
