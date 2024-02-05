@@ -1,5 +1,3 @@
-
-
 /**
  *
  * @export
@@ -78,7 +76,7 @@ export interface IResponse<T> extends ErrorResponse {
   data: T | null;
 }
 
-export type WrapperDocsResponseDto<T> = IResponse<DocsResponse<T>>
+export type WrapperDocsResponseDto<T> = IResponse<DocsResponse<T>>;
 
 /**
  *
@@ -125,7 +123,6 @@ export interface InlineResponse {
    */
   details?: { [key: string]: InlineResponseInfo };
 }
-
 
 /**
  *

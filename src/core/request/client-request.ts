@@ -1,6 +1,5 @@
 import { VERSION } from '@/interfaces/enums/version.enum';
 import {
-  DocsResponse,
   ErrorResponse,
   IResponse,
 } from '@/interfaces/response/response.interface';
@@ -16,7 +15,7 @@ export class ClientRequest {
     version: VERSION,
     path: string,
     params?: T | QueryBuilder<T>,
-  ): Promise<IResponse<DocsResponse<R>>> {
+  ): Promise<IResponse<R>> {
     try {
       let buildParams = '';
 

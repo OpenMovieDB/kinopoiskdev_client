@@ -78,7 +78,6 @@ describe('StudioService E2E', () => {
         const dates = response?.data?.docs.map(doc => doc.updatedAt);
         if (!dates) return;
         expect(dates).toEqual(dates.sort());
-
         expect(response?.data?.limit).toEqual(5);
         expect(response?.data?.page).toEqual(3);
       },
